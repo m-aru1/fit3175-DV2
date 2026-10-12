@@ -1,0 +1,85 @@
+sex,age_group,disorder,percent
+Males,16–24,Anxiety,24.4
+Males,16–24,Affective (mood),10.4
+Males,16–24,Substance use,9.9
+Males,16–24,Any disorder,32.4
+Males,25–34,Anxiety,17.5
+Males,25–34,Affective (mood),8.6
+Males,25–34,Substance use,4.7
+Males,25–34,Any disorder,22.8
+Males,35–44,Anxiety,11.1
+Males,35–44,Affective (mood),4.8
+Males,35–44,Substance use,5.2
+Males,35–44,Any disorder,16.7
+Males,45–54,Anxiety,11.6
+Males,45–54,Affective (mood),6.2
+Males,45–54,Substance use,3.7
+Males,45–54,Any disorder,16.5
+Males,55–64,Anxiety,11.3
+Males,55–64,Affective (mood),8.3
+Males,55–64,Substance use,1.6
+Males,55–64,Any disorder,16.0
+Males,65–74,Anxiety,6.3
+Males,65–74,Affective (mood),3.6
+Males,65–74,Substance use,1.8
+Males,65–74,Any disorder,9.6
+Males,75–85,Anxiety,4.0
+Males,75–85,Affective (mood),1.5
+Males,75–85,Substance use,0.6
+Males,75–85,Any disorder,4.9
+Females,16–24,Anxiety,40.4
+Females,16–24,Affective (mood),16.7
+Females,16–24,Substance use,5.2
+Females,16–24,Any disorder,45.5
+Females,25–34,Anxiety,26.3
+Females,25–34,Affective (mood),11.1
+Females,25–34,Substance use,3.1
+Females,25–34,Any disorder,29.6
+Females,35–44,Anxiety,20.2
+Females,35–44,Affective (mood),8.7
+Females,35–44,Substance use,1.8
+Females,35–44,Any disorder,23.8
+Females,45–54,Anxiety,19.7
+Females,45–54,Affective (mood),7.1
+Females,45–54,Substance use,1.7
+Females,45–54,Any disorder,24.0
+Females,55–64,Anxiety,16.8
+Females,55–64,Affective (mood),5.9
+Females,55–64,Substance use,1.2
+Females,55–64,Any disorder,19.6
+Females,65–74,Anxiety,10.9
+Females,65–74,Affective (mood),5.6
+Females,65–74,Substance use,0.3
+Females,65–74,Any disorder,13.8
+Females,75–85,Anxiety,5.5
+Females,75–85,Affective (mood),1.4
+Females,75–85,Substance use,0.0
+Females,75–85,Any disorder,6.1
+Persons,16–24,Anxiety,31.8
+Persons,16–24,Affective (mood),13.5
+Persons,16–24,Substance use,7.8
+Persons,16–24,Any disorder,38.8
+Persons,25–34,Anxiety,21.9
+Persons,25–34,Affective (mood),9.7
+Persons,25–34,Substance use,4.1
+Persons,25–34,Any disorder,26.3
+Persons,35–44,Anxiety,15.8
+Persons,35–44,Affective (mood),6.8
+Persons,35–44,Substance use,3.5
+Persons,35–44,Any disorder,20.3
+Persons,45–54,Anxiety,15.5
+Persons,45–54,Affective (mood),6.3
+Persons,45–54,Substance use,2.7
+Persons,45–54,Any disorder,20.2
+Persons,55–64,Anxiety,14.3
+Persons,55–64,Affective (mood),6.7
+Persons,55–64,Substance use,1.3
+Persons,55–64,Any disorder,17.9
+Persons,65–74,Anxiety,9.0
+Persons,65–74,Affective (mood),4.7
+Persons,65–74,Substance use,1.2
+Persons,65–74,Any disorder,11.9
+Persons,75–85,Anxiety,4.7
+Persons,75–85,Affective (mood),1.2
+Persons,75–85,Substance use,0.2
+Persons,75–85,Any disorder,5.4

@@ -1,0 +1,9 @@
+state,abbr,k10_high_vhigh,mental_behavioural,disorder_12m,mbs_patients,mbs_rate,mbs_services,lon,lat,col,row,label_lon,label_lat
+New South Wales,NSW,13.9,22.2,19.5,865261,101,3952270,146.4,-32.2,2,1,146.4,-32.2
+Victoria,Vic.,14.0,25.6,21.4,773117,110,3814938,144.3,-37.0,2,2,144.3,-37.0
+Queensland,Qld,15.7,30.8,23.7,572897,102,2648585,144.5,-22.5,2,0,144.5,-22.5
+South Australia,SA,17.0,28.8,21.6,174644,92,780044,135.5,-30.0,1,1,135.5,-30.0
+Western Australia,WA,11.9,27.0,23.1,282984,94,1245880,121.5,-25.5,0,1,121.5,-25.5
+Tasmania,Tas.,16.1,29.5,19.8,55900,97,251410,146.6,-42.0,2,3,146.6,-42.0
+Northern Territory,NT,14.1,21.6,28.8,14414,55,48160,133.4,-19.5,1,0,133.4,-19.5
+Australian Capital Territory,ACT,13.7,28.1,25.5,44887,93,216971,149.1,-35.4,3,2,153.6,-36.3

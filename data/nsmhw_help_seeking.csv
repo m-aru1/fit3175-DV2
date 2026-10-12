@@ -1,0 +1,13 @@
+sex,age_group,status,percent_of_population
+Males,16–34,Saw a health professional,9.9
+Males,16–34,Did not,17.0
+Males,35–64,Saw a health professional,6.3
+Males,35–64,Did not,10.0
+Males,65–85,Saw a health professional,2.2
+Males,65–85,Did not,5.7
+Females,16–34,Saw a health professional,19.6
+Females,16–34,Did not,16.8
+Females,35–64,Saw a health professional,11.5
+Females,35–64,Did not,11.0
+Females,65–85,Saw a health professional,4.3
+Females,65–85,Did not,6.8

@@ -1,0 +1,85 @@
+sex,age_group,level,percent
+Males,16–24,Low,59
+Males,25–34,Low,59.9
+Males,35–44,Low,64.9
+Males,45–54,Low,67.5
+Males,55–64,Low,67.9
+Males,65–74,Low,72
+Males,75–85,Low,78.4
+Males,16–24,Moderate,23.5
+Males,25–34,Moderate,24.4
+Males,35–44,Moderate,22.5
+Males,45–54,Moderate,19
+Males,55–64,Moderate,16.2
+Males,65–74,Moderate,16.2
+Males,75–85,Moderate,11.9
+Males,16–24,High,13.6
+Males,25–34,High,9.9
+Males,35–44,High,8.5
+Males,45–54,High,9.4
+Males,55–64,High,7.9
+Males,65–74,High,7.5
+Males,75–85,High,7.2
+Males,16–24,Very high,4.4
+Males,25–34,Very high,5.7
+Males,35–44,Very high,3.5
+Males,45–54,Very high,4.5
+Males,55–64,Very high,6.2
+Males,65–74,Very high,3.8
+Males,75–85,Very high,2.0
+Females,16–24,Low,41.2
+Females,25–34,Low,56.3
+Females,35–44,Low,59.5
+Females,45–54,Low,59.5
+Females,55–64,Low,62.2
+Females,65–74,Low,66.8
+Females,75–85,Low,72.8
+Females,16–24,Moderate,25
+Females,25–34,Moderate,24.6
+Females,35–44,Moderate,21.6
+Females,45–54,Moderate,23.3
+Females,55–64,Moderate,19.6
+Females,65–74,Moderate,17.8
+Females,75–85,Moderate,16
+Females,16–24,High,22.1
+Females,25–34,High,12.3
+Females,35–44,High,13.6
+Females,45–54,High,11.9
+Females,55–64,High,10
+Females,65–74,High,10.5
+Females,75–85,High,8.4
+Females,16–24,Very high,11.8
+Females,25–34,Very high,7.2
+Females,35–44,Very high,4.7
+Females,45–54,Very high,5.6
+Females,55–64,Very high,7.7
+Females,65–74,Very high,4.3
+Females,75–85,Very high,2.2
+Persons,16–24,Low,50
+Persons,25–34,Low,57.9
+Persons,35–44,Low,62.1
+Persons,45–54,Low,63.4
+Persons,55–64,Low,65
+Persons,65–74,Low,69.4
+Persons,75–85,Low,75.8
+Persons,16–24,Moderate,24.1
+Persons,25–34,Moderate,24.2
+Persons,35–44,Moderate,22.2
+Persons,45–54,Moderate,21.3
+Persons,55–64,Moderate,18
+Persons,65–74,Moderate,16.8
+Persons,75–85,Moderate,14.4
+Persons,16–24,High,17.3
+Persons,25–34,High,11.4
+Persons,35–44,High,11.3
+Persons,45–54,High,10.5
+Persons,55–64,High,9
+Persons,65–74,High,9.3
+Persons,75–85,High,7.9
+Persons,16–24,Very high,8.5
+Persons,25–34,Very high,6.3
+Persons,35–44,Very high,4.4
+Persons,45–54,Very high,4.8
+Persons,55–64,Very high,7.1
+Persons,65–74,Very high,4.0
+Persons,75–85,Very high,2.4
