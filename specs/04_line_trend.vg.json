@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Line chart: % high/very high distress (adults) and % with a long-term mental or behavioural condition, each National Health Survey 2001-2022. ABS NHS 2022 Table 1.",
+  "width": 500,
+  "height": 250,
+  "data": {
+    "url": "data/nhs_trend.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "percent": "number"
+      }
+    }
+  },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "survey",
+      "type": "ordinal",
+      "title": "Survey",
+      "sort": null
+    },
+    "y": {
+      "field": "percent",
+      "type": "quantitative",
+      "title": "% of people"
+    },
+    "color": {
+      "field": "measure",
+      "type": "nominal",
+      "title": null,
+      "legend": {
+        "orient": "bottom",
+        "direction": "vertical",
+        "labelLimit": 400
+      }
+    },
+    "tooltip": [
+      {
+        "field": "survey"
+      },
+      {
+        "field": "measure"
+      },
+      {
+        "field": "percent",
+        "title": "%"
+      }
+    ]
+  }
+}

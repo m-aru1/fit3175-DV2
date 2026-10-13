@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Diverging stacked bar: K10 psychological distress level by age, females vs males. Low/Moderate go left of 0, High/Very high go right. ABS NSMHW 2020-22 Table 16.",
+  "data": {
+    "url": "data/nsmhw_k10_age_sex.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "percent": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.sex != 'Persons'"
+    },
+    {
+      "calculate": "datum.level == 'Low' || datum.level == 'Moderate' ? -datum.percent : datum.percent",
+      "as": "signed"
+    },
+    {
+      "calculate": "datum.level == 'Moderate' || datum.level == 'High' ? 1 : 2",
+      "as": "stackOrder"
+    }
+  ],
+  "facet": {
+    "column": {
+      "field": "sex",
+      "type": "nominal",
+      "title": null
+    }
+  },
+  "spec": {
+    "width": 260,
+    "height": 200,
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "age_group",
+        "type": "ordinal",
+        "title": "Age group"
+      },
+      "x": {
+        "field": "signed",
+        "type": "quantitative",
+        "title": "% of age group (left = low/moderate, right = high/very high)"
+      },
+      "color": {
+        "field": "level",
+        "type": "nominal",
+        "title": "Distress",
+        "scale": {
+          "domain": [
+            "Low",
+            "Moderate",
+            "High",
+            "Very high"
+          ],
+          "range": [
+            "#91bfdb",
+            "#e0f3f8",
+            "#fc8d59",
+            "#d73027"
+          ]
+        }
+      },
+      "order": {
+        "field": "stackOrder"
+      },
+      "tooltip": [
+        {
+          "field": "sex"
+        },
+        {
+          "field": "age_group"
+        },
+        {
+          "field": "level"
+        },
+        {
+          "field": "percent",
+          "title": "%"
+        }
+      ]
+    }
+  }
+}

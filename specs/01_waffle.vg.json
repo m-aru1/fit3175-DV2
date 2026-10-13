@@ -1,0 +1,88 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Waffle chart: out of 100 Australians aged 16-85, how many had a mental disorder (lifetime vs last 12 months). ABS NSMHW 2020-22.",
+  "data": {
+    "url": "data/nsmhw_headline.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "percent": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "sequence(0, 100)",
+      "as": "cell"
+    },
+    {
+      "flatten": [
+        "cell"
+      ]
+    },
+    {
+      "calculate": "datum.cell % 10",
+      "as": "col"
+    },
+    {
+      "calculate": "floor(datum.cell / 10)",
+      "as": "row"
+    },
+    {
+      "calculate": "datum.cell < round(datum.percent) ? 'Yes' : 'No'",
+      "as": "had_disorder"
+    }
+  ],
+  "facet": {
+    "column": {
+      "field": "measure",
+      "type": "nominal",
+      "title": null
+    }
+  },
+  "spec": {
+    "width": 200,
+    "height": 200,
+    "mark": {
+      "type": "square",
+      "size": 150
+    },
+    "encoding": {
+      "x": {
+        "field": "col",
+        "type": "ordinal",
+        "axis": null
+      },
+      "y": {
+        "field": "row",
+        "type": "ordinal",
+        "axis": null,
+        "sort": "descending"
+      },
+      "color": {
+        "field": "had_disorder",
+        "type": "nominal",
+        "title": "Had a disorder",
+        "scale": {
+          "domain": [
+            "Yes",
+            "No"
+          ],
+          "range": [
+            "#6a4c93",
+            "#ddd"
+          ]
+        }
+      },
+      "tooltip": [
+        {
+          "field": "measure"
+        },
+        {
+          "field": "percent",
+          "title": "%"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Choropleth map by state. Drop-down switches between three indicators (ABS NHS 2022 and ABS NSMHW 2020-22).",
+  "width": 500,
+  "height": 400,
+  "params": [
+    {
+      "name": "indicator",
+      "value": "k10_high_vhigh",
+      "bind": {
+        "input": "select",
+        "options": [
+          "k10_high_vhigh",
+          "mental_behavioural",
+          "disorder_12m"
+        ],
+        "labels": [
+          "High/very high distress (2022)",
+          "Mental/behavioural condition (2022)",
+          "12-month mental disorder (2020-22)"
+        ],
+        "name": "Indicator: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "url": "data/states.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "k10_high_vhigh": "number",
+                  "mental_behavioural": "number",
+                  "disorder_12m": "number",
+                  "mbs_patients": "number",
+                  "mbs_rate": "number",
+                  "lon": "number",
+                  "lat": "number",
+                  "col": "number",
+                  "row": "number",
+                  "label_lon": "number",
+                  "label_lat": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "k10_high_vhigh",
+              "mental_behavioural",
+              "disorder_12m"
+            ]
+          }
+        },
+        {
+          "calculate": "datum[indicator]",
+          "as": "value"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white"
+      },
+      "encoding": {
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "%",
+          "scale": {
+            "scheme": "purples",
+            "zero": false
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.STATE_NAME",
+            "title": "State"
+          },
+          {
+            "field": "value",
+            "title": "%"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/states.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "k10_high_vhigh": "number",
+            "mental_behavioural": "number",
+            "disorder_12m": "number",
+            "mbs_patients": "number",
+            "mbs_rate": "number",
+            "lon": "number",
+            "lat": "number",
+            "col": "number",
+            "row": "number",
+            "label_lon": "number",
+            "label_lat": "number"
+          }
+        }
+      },
+      "mark": "text",
+      "encoding": {
+        "longitude": {
+          "field": "label_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "abbr"
+        }
+      }
+    }
+  ]
+}

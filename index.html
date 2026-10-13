@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mental Health in Australia </title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+</head>
+<body>
+
+<h1>Mental Health in Australia</h1>
+<p><em>draft for feedback session. Mithra, October 2026.</em></p>
+<p class="todo">intro paragraph, final layout and fonts.</p>
+
+<h2>1. How common is it?</h2>
+<p>43% of Australians aged 16–85 have had a mental disorder in their life; 21.5% in the last 12 months.</p>
+<div id="vis-waffle"></div>
+
+<h2>2. Who is affected?</h2>
+<p>Mental disorders by type and age group. Young people, especially young women, have the highest rates.</p>
+<div id="vis-heatmap"></div>
+
+<p>Psychological distress (K10) by age and sex.</p>
+<div id="vis-diverging"></div>
+
+<h2>3. Change over time</h2>
+<p>Reported mental/behavioural conditions have risen from 9.6% (2001) to 26.1% (2022).</p>
+<div id="vis-trend"></div>
+
+
+<h2>4. Differences between states</h2>
+<div id="vis-choropleth"></div>
+
+<h2>5. Getting help</h2>
+<p>Less than half of people with a 12-month disorder saw a health professional.</p>
+<div id="vis-dumbbell"></div>
+
+<p>Medicare-subsidised mental health services, 2024–25 (bars) vs 2015–16 (ticks).</p>
+<div id="vis-pyramid"></div>
+
+<p>Service use by age and year. Note the 2020–22 spike for young females.</p>
+<div id="vis-heatmap-years"></div>
+
+<p>Service use by state: total people (circle size) and rate per 1,000 (colour).</p>
+<div id="vis-symbol"></div>
+
+<p>Rate per 1,000 in each state, 2015–16 to 2024–25.</p>
+<div id="vis-tiles"></div>
+
+<h2>6. Conclusion</h2>
+<p class="todo">key takeaways: </p>
+<p>Support: Lifeline 13 11 14 · Beyond Blue 1300 22 4636</p>
+
+<h2>Sources</h2>
+<ul>
+  <li>ABS (2023), National Study of Mental Health and Wellbeing 2020–22 — <a href="https://www.abs.gov.au/statistics/health/mental-health/national-study-mental-health-and-wellbeing/latest-release">link</a></li>
+  <li>ABS (2023), National Health Survey 2022 — <a href="https://www.abs.gov.au/statistics/health/health-conditions-and-risks/national-health-survey/latest-release">link</a></li>
+  <li>AIHW (2026), Medicare mental health services 2024–25 — <a href="https://www.aihw.gov.au/mental-health/topic-areas/community-based-services/medicare-mental-health">link</a></li>
+  <li>State boundaries: <a href="https://github.com/tonywr71/GeoJson-Data">tonywr71/GeoJson-Data</a></li>
+</ul>
+<p>AI assistance (Claude) was used for parts of the code and text.</p>
+
+<script src="js/main.js"></script>
+</body>
+</html>
