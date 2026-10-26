@@ -1,7 +1,7 @@
 // Shared look for every chart: fonts and colours match the page.
 // Keeping it here means each spec only describes its data, marks and encodings.
 const theme = {
-  font: "Source Sans 3",
+  font: '"Source Sans 3", sans-serif',   // quoted: the "3" makes an unquoted name invalid, which breaks text measuring
   background: null,                       // transparent, so the page colour shows through
   view: { stroke: null },                 // no border around each plot
   axis: {

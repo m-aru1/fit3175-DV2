@@ -33,7 +33,7 @@
               "signal": "width"
             },
             {
-              "signal": "height"
+              "signal": "height + 26"
             }
           ]
         }
@@ -88,13 +88,15 @@
             "field": "x0"
           },
           "y": {
-            "field": "y0"
+            "field": "y0",
+            "offset": -26
           },
           "x2": {
             "field": "x1"
           },
           "y2": {
-            "field": "y1"
+            "field": "y1",
+            "offset": -26
           },
           "fill": {
             "value": "#dce7f2"
@@ -115,13 +117,13 @@
           },
           "y": {
             "field": "y0",
-            "offset": 18
+            "offset": -8
           },
           "text": {
             "signal": "datum.group + ' · ' + format(datum.group_people_000 / 1000, '.1f') + ' million (' + format(datum.group_percent, '.1f') + '%)'"
           },
           "fontSize": {
-            "value": 13
+            "value": 14
           },
           "fontWeight": {
             "value": 700
@@ -131,6 +133,9 @@
           },
           "limit": {
             "signal": "datum.x1 - datum.x0 - 10"
+          },
+          "font": {
+            "value": "\"Source Sans 3\", sans-serif"
           }
         }
       }
@@ -146,13 +151,15 @@
             "field": "x0"
           },
           "y": {
-            "field": "y0"
+            "field": "y0",
+            "offset": -26
           },
           "x2": {
             "field": "x1"
           },
           "y2": {
-            "field": "y1"
+            "field": "y1",
+            "offset": -26
           },
           "fill": {
             "scale": "color",
@@ -194,13 +201,13 @@
           },
           "y": {
             "field": "y0",
-            "offset": 20
+            "offset": -6
           },
           "text": {
             "field": "name"
           },
           "fontSize": {
-            "value": 13
+            "value": 14
           },
           "fontWeight": {
             "value": 700
@@ -213,6 +220,9 @@
           },
           "opacity": {
             "signal": "datum.x1 - datum.x0 > 50 && datum.y1 - datum.y0 > 26 ? 1 : 0"
+          },
+          "font": {
+            "value": "\"Source Sans 3\", sans-serif"
           }
         }
       }
@@ -231,13 +241,13 @@
           },
           "y": {
             "field": "y0",
-            "offset": 38
+            "offset": 16
           },
           "text": {
             "signal": "format(datum.percent, '.1f') + '%  ·  ' + format(datum.people_000 * 1000, ',.0f')"
           },
           "fontSize": {
-            "value": 12
+            "value": 16
           },
           "fill": {
             "signal": "datum.group == 'Substance use' ? '#13213a' : 'white'"
@@ -246,7 +256,13 @@
             "signal": "datum.x1 - datum.x0 - 12"
           },
           "opacity": {
-            "signal": "datum.x1 - datum.x0 > 50 && datum.y1 - datum.y0 > 46 ? 1 : 0"
+            "signal": "datum.x1 - datum.x0 > 50 && datum.y1 - datum.y0 > 52 ? 1 : 0"
+          },
+          "font": {
+            "value": "\"Source Sans 3\", sans-serif"
+          },
+          "fontWeight": {
+            "value": 600
           }
         }
       }
