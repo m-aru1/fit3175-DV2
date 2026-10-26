@@ -64,12 +64,13 @@ figure + .grid-2, .grid-2 + figure, .intro + .grid-2 { margin-top: 48px; }
 figure { margin: 32px 0 0; }
 .chart-col { margin-top: 0; }
 .chart-title { font-size: 18px; margin-bottom: 4px; }
-.chart-sub { display: block; font-family: var(--sans); font-size: 16px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+/* Subtitle sits on the same line as the title, after a thin divider */
+.chart-sub { display: inline; font-family: var(--sans); font-size: 16px; font-weight: 400; color: var(--muted); margin-left: 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
 .chart { width: 100%; overflow-x: auto; margin: 8px 0; }
 .chart-center { display: flex; justify-content: center; }
 /* Waffle: never wider than its column; on narrow screens the SVG scales down instead of scrolling */
-#vis-waffle { overflow-x: visible; }
-#vis-waffle svg { max-width: 100%; height: auto; }
+#vis-waffle, #vis-diverging, #vis-bivariate { overflow-x: visible; }
+#vis-waffle svg, #vis-diverging svg, #vis-bivariate svg { max-width: 100%; height: auto; }
 figcaption { font-size: 14px; color: var(--muted); max-width: 46em; margin-top: 6px; line-height: 1.5; }
 
 /* Inline legend for the dumbbell chart */
@@ -114,10 +115,9 @@ a { color: var(--mid); }
 .hero-top > div { grid-column: span 2; }
 .hero-art { width: 100%; max-width: 150px; height: auto; display: block; justify-self: center; margin: 8px 0; }
 
-/* Section 2 opener: headline + intro on the left, illustration in the empty space on the right */
-.intro-row { display: grid; grid-template-columns: minmax(0, 560px) 1fr; gap: 24px; align-items: center; }
-.intro-row .intro { margin-bottom: 0; }
-.intro-art { width: 100%; max-width: 300px; height: auto; justify-self: start; position: relative; top: -16px; }
+/* Section 2 opener: illustration sits above the intro paragraph */
+.intro-row { display: block; }
+.intro-art { display: block; width: 100%; max-width: 300px; height: auto; margin: 8px 0 20px; }
 
 /* ---------- Smaller screens ---------- */
 @media (max-width: 900px) {
@@ -127,6 +127,5 @@ a { color: var(--mid); }
   .hero-art { max-width: 120px; justify-self: start; margin: 0 0 8px; }
   .hero h1 { font-size: 42px; }
   .toc-inner { justify-content: flex-start; gap: 10px 28px; }
-  .intro-row { grid-template-columns: 1fr; gap: 16px; }
-  .intro-art { max-width: 240px; justify-self: start; top: 0; }
+  .intro-art { max-width: 240px; }
 }

@@ -1,10 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Bivariate choropleth: each state is coloured by two measures at once. High/very high psychological distress (ABS NHS 2022) and people per 1,000 using Medicare mental health services (AIHW 2024-25), each split at the median of the eight states/territories.",
+  "padding": 32,
   "hconcat": [
     {
-      "width": 460,
-      "height": 380,
+      "width": 640,
+      "height": 570,
       "projection": {
         "type": "conicEqualArea",
         "parallels": [

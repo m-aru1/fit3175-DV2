@@ -103,9 +103,10 @@
             "zero": false
           },
           "legend": {
-            "orient": "bottom-left",
+            "orient": "left",
             "direction": "vertical",
-            "gradientLength": 120
+            "gradientLength": 120,
+            "offset": 24
           }
         },
         "tooltip": [
