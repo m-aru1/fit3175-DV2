@@ -1,0 +1,89 @@
+sa4_code,sa4_name,gccsa,state,lon,lat,patients,patients_per_1000
+101,Capital Region,Rest of NSW,New South Wales,149.247,-35.564,22327,91
+102,Central Coast,Greater Sydney,New South Wales,151.289,-33.307,43043,121
+103,Central West,Rest of NSW,New South Wales,148.354,-33.218,20179,93
+104,Coffs Harbour - Grafton,Rest of NSW,New South Wales,152.777,-29.815,16686,111
+105,Far West and Orana,Rest of NSW,New South Wales,145.027,-30.986,8658,73
+106,Hunter Valley exc Newcastle,Rest of NSW,New South Wales,150.987,-32.357,34590,111
+107,Illawarra,Rest of NSW,New South Wales,150.772,-34.435,40977,126
+108,Mid North Coast,Rest of NSW,New South Wales,152.339,-31.563,25400,107
+109,Murray,Rest of NSW,New South Wales,144.045,-34.423,11502,90
+110,New England and North West,Rest of NSW,New South Wales,150.703,-30.065,13961,73
+111,Newcastle and Lake Macquarie,Rest of NSW,New South Wales,151.567,-32.996,49236,121
+112,Richmond - Tweed,Rest of NSW,New South Wales,153.067,-28.744,36540,139
+113,Riverina,Rest of NSW,New South Wales,146.771,-34.623,13827,83
+114,Southern Highlands and Shoalhaven,Rest of NSW,New South Wales,150.367,-34.876,18912,115
+115,Sydney - Baulkham Hills and Hawkesbury,Greater Sydney,New South Wales,150.83,-33.37,27824,97
+116,Sydney - Blacktown,Greater Sydney,New South Wales,150.859,-33.741,36769,83
+117,Sydney - City and Inner South,Greater Sydney,New South Wales,151.194,-33.922,39934,110
+118,Sydney - Eastern Suburbs,Greater Sydney,New South Wales,151.247,-33.918,34280,123
+119,Sydney - Inner South West,Greater Sydney,New South Wales,151.064,-33.939,49289,78
+120,Sydney - Inner West,Greater Sydney,New South Wales,151.115,-33.875,34523,108
+121,Sydney - North Sydney and Hornsby,Greater Sydney,New South Wales,151.158,-33.696,50462,114
+122,Sydney - Northern Beaches,Greater Sydney,New South Wales,151.252,-33.697,32963,122
+123,Sydney - Outer South West,Greater Sydney,New South Wales,150.684,-34.12,30930,97
+124,Sydney - Outer West and Blue Mountains,Greater Sydney,New South Wales,150.381,-33.872,40811,118
+125,Sydney - Parramatta,Greater Sydney,New South Wales,151.004,-33.823,39892,76
+126,Sydney - Ryde,Greater Sydney,New South Wales,151.098,-33.79,19366,90
+127,Sydney - South West,Greater Sydney,New South Wales,150.818,-33.933,39108,76
+128,Sydney - Sutherland,Greater Sydney,New South Wales,151.06,-34.072,27617,116
+201,Ballarat,Rest of Vic.,Victoria,143.737,-37.376,23117,127
+202,Bendigo,Rest of Vic.,Victoria,144.094,-36.599,21753,126
+203,Geelong,Rest of Vic.,Victoria,144.13,-38.113,42581,122
+204,Hume,Rest of Vic.,Victoria,146.415,-36.775,19048,100
+205,Latrobe - Gippsland,Rest of Vic.,Victoria,147.432,-37.724,32777,105
+206,Melbourne - Inner,Greater Melbourne,Victoria,144.966,-37.804,98067,140
+207,Melbourne - Inner East,Greater Melbourne,Victoria,145.108,-37.812,42805,107
+208,Melbourne - Inner South,Greater Melbourne,Victoria,145.07,-37.956,59680,133
+209,Melbourne - North East,Greater Melbourne,Victoria,145.167,-37.52,69382,119
+210,Melbourne - North West,Greater Melbourne,Victoria,144.744,-37.476,48939,106
+211,Melbourne - Outer East,Greater Melbourne,Victoria,145.503,-37.759,62724,117
+212,Melbourne - South East,Greater Melbourne,Victoria,145.468,-38.072,83494,89
+213,Melbourne - West,Greater Melbourne,Victoria,144.624,-37.778,88661,93
+214,Mornington Peninsula,Greater Melbourne,Victoria,145.053,-38.312,40079,127
+215,North West,Rest of Vic.,Victoria,142.24,-35.87,11941,77
+216,Shepparton,Rest of Vic.,Victoria,145.167,-36.253,12704,92
+217,Warrnambool and South West,Rest of Vic.,Victoria,142.38,-37.975,11710,91
+301,Brisbane - East,Greater Brisbane,Queensland,153.458,-27.55,27773,109
+302,Brisbane - North,Greater Brisbane,Queensland,153.062,-27.364,25919,108
+303,Brisbane - South,Greater Brisbane,Queensland,153.071,-27.568,40295,99
+304,Brisbane - West,Greater Brisbane,Queensland,152.899,-27.485,24257,120
+305,Brisbane Inner City,Greater Brisbane,Queensland,153.018,-27.449,38066,115
+306,Cairns,Rest of Qld,Queensland,145.496,-17.61,24062,89
+307,Darling Downs - Maranoa,Rest of Qld,Queensland,149.356,-27.316,10480,78
+308,Central Queensland,Rest of Qld,Queensland,149.314,-24.117,19500,81
+309,Gold Coast,Rest of Qld,Queensland,153.27,-28.014,82644,118
+310,Ipswich,Greater Brisbane,Queensland,152.548,-27.605,42522,104
+311,Logan - Beaudesert,Greater Brisbane,Queensland,152.966,-27.995,40672,100
+312,Mackay - Isaac - Whitsunday,Rest of Qld,Queensland,147.92,-21.747,14961,78
+313,Moreton Bay - North,Greater Brisbane,Queensland,152.526,-26.853,29089,99
+314,Moreton Bay - South,Greater Brisbane,Queensland,152.861,-27.269,25197,107
+315,Queensland - Outback,Rest of Qld,Queensland,142.527,-21.822,3426,42
+316,Sunshine Coast,Rest of Qld,Queensland,152.912,-26.588,49960,115
+317,Toowoomba,Rest of Qld,Queensland,152.083,-27.618,17902,103
+318,Townsville,Rest of Qld,Queensland,145.931,-20.041,24180,98
+319,Wide Bay,Rest of Qld,Queensland,151.738,-25.639,30620,93
+401,Adelaide - Central and Hills,Greater Adelaide,South Australia,138.839,-34.973,32685,98
+402,Adelaide - North,Greater Adelaide,South Australia,138.666,-34.693,43603,90
+403,Adelaide - South,Greater Adelaide,South Australia,138.571,-35.141,42038,107
+404,Adelaide - West,Greater Adelaide,South Australia,138.534,-34.886,23863,92
+405,Barossa - Yorke - Mid North,Rest of SA,South Australia,138.444,-33.66,9144,76
+406,South Australia - Outback,Rest of SA,South Australia,135.374,-29.483,6010,70
+407,South Australia - South East,Rest of SA,South Australia,140.103,-35.692,16715,82
+501,Bunbury,Rest of WA,Western Australia,116.007,-33.956,21107,102
+502,Mandurah,Greater Perth,Western Australia,115.857,-32.622,10400,85
+503,Perth - Inner,Greater Perth,Western Australia,115.809,-31.953,22155,107
+504,Perth - North East,Greater Perth,Western Australia,116.136,-31.81,30224,96
+505,Perth - North West,Greater Perth,Western Australia,115.77,-31.664,65957,103
+506,Perth - South East,Greater Perth,Western Australia,116.064,-32.206,50894,85
+507,Perth - South West,Greater Perth,Western Australia,115.813,-32.232,52240,104
+509,Western Australia - Wheat Belt,Rest of WA,Western Australia,117.918,-32.069,11669,79
+510,Western Australia - Outback (North),Rest of WA,Western Australia,123.726,-20.048,4609,46
+511,Western Australia - Outback (South),Rest of WA,Western Australia,121.995,-27.735,7846,62
+601,Hobart,Greater Hobart,Tasmania,147.441,-42.83,26220,103
+602,Launceston and North East,Rest of Tas.,Tasmania,147.39,-41.494,14208,91
+603,South East,Rest of Tas.,Tasmania,146.824,-42.608,4487,101
+604,West and North West,Rest of Tas.,Tasmania,145.564,-41.734,10632,89
+701,Darwin,Greater Darwin,Northern Territory,131.11,-12.533,8806,58
+702,Northern Territory - Outback,Rest of NT,Northern Territory,133.375,-19.493,2862,28
+801,Australian Capital Territory,Australian Capital Territory,Australian Capital Territory,149.002,-35.49,44597,94

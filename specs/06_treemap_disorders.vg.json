@@ -1,0 +1,255 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Treemap of 12-month mental disorders by type. Rectangle area = estimated number of Australians aged 16-85 with each disorder; rectangles are grouped into anxiety, affective (mood) and substance use disorders (ABS NSMHW 2020-22, Table 2).",
+  "width": 1000,
+  "height": 440,
+  "padding": 0,
+  "autosize": "none",
+  "data": [
+    {
+      "name": "tree",
+      "url": "data/nsmhw_disorder_types.json",
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "treemap",
+          "field": "people_000",
+          "sort": {
+            "field": "value",
+            "order": "descending"
+          },
+          "round": true,
+          "method": "squarify",
+          "ratio": 1.4,
+          "paddingInner": 3,
+          "paddingTop": 26,
+          "paddingOuter": 0,
+          "size": [
+            {
+              "signal": "width"
+            },
+            {
+              "signal": "height"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "groups",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.parent == 'root'"
+        }
+      ]
+    },
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "!datum.children"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": [
+        "Anxiety",
+        "Affective (mood)",
+        "Substance use"
+      ],
+      "range": [
+        "#1d4e89",
+        "#3a7ca5",
+        "#a9cce3"
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "groups"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "x0"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "value": "#dce7f2"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "groups"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "x0",
+            "offset": 6
+          },
+          "y": {
+            "field": "y0",
+            "offset": 18
+          },
+          "text": {
+            "signal": "datum.group + ' · ' + format(datum.group_people_000 / 1000, '.1f') + ' million (' + format(datum.group_percent, '.1f') + '%)'"
+          },
+          "fontSize": {
+            "value": 13
+          },
+          "fontWeight": {
+            "value": 700
+          },
+          "fill": {
+            "value": "#13213a"
+          },
+          "limit": {
+            "signal": "datum.x1 - datum.x0 - 10"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "x0"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "scale": "color",
+            "field": "group"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 1
+          },
+          "tooltip": {
+            "signal": "{'Disorder': datum.name, 'Type': datum.group, 'People aged 16–85': format(datum.people_000 * 1000, ',.0f'), '% of people aged 16–85': format(datum.percent, '.1f') + '%'}"
+          }
+        },
+        "update": {
+          "opacity": {
+            "value": 1
+          }
+        },
+        "hover": {
+          "opacity": {
+            "value": 0.8
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "x0",
+            "offset": 8
+          },
+          "y": {
+            "field": "y0",
+            "offset": 20
+          },
+          "text": {
+            "field": "name"
+          },
+          "fontSize": {
+            "value": 13
+          },
+          "fontWeight": {
+            "value": 700
+          },
+          "fill": {
+            "signal": "datum.group == 'Substance use' ? '#13213a' : 'white'"
+          },
+          "limit": {
+            "signal": "datum.x1 - datum.x0 - 12"
+          },
+          "opacity": {
+            "signal": "datum.x1 - datum.x0 > 50 && datum.y1 - datum.y0 > 26 ? 1 : 0"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "x0",
+            "offset": 8
+          },
+          "y": {
+            "field": "y0",
+            "offset": 38
+          },
+          "text": {
+            "signal": "format(datum.percent, '.1f') + '%  ·  ' + format(datum.people_000 * 1000, ',.0f')"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fill": {
+            "signal": "datum.group == 'Substance use' ? '#13213a' : 'white'"
+          },
+          "limit": {
+            "signal": "datum.x1 - datum.x0 - 12"
+          },
+          "opacity": {
+            "signal": "datum.x1 - datum.x0 > 50 && datum.y1 - datum.y0 > 46 ? 1 : 0"
+          }
+        }
+      }
+    }
+  ]
+}

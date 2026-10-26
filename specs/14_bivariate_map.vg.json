@@ -1,0 +1,287 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bivariate choropleth: each state is coloured by two measures at once. High/very high psychological distress (ABS NHS 2022) and people per 1,000 using Medicare mental health services (AIHW 2024-25), each split at the median of the eight states/territories.",
+  "hconcat": [
+    {
+      "width": 460,
+      "height": 380,
+      "projection": {
+        "type": "conicEqualArea",
+        "parallels": [
+          -18,
+          -36
+        ],
+        "rotate": [
+          -132,
+          0
+        ]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "data/states.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "k10_high_vhigh": "number",
+                "mental_behavioural": "number",
+                "disorder_12m": "number",
+                "mbs_patients": "number",
+                "mbs_rate": "number",
+                "mbs_services": "number",
+                "lon": "number",
+                "lat": "number",
+                "col": "number",
+                "row": "number",
+                "label_lon": "number",
+                "label_lat": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "joinaggregate": [
+                {
+                  "op": "median",
+                  "field": "k10_high_vhigh",
+                  "as": "k10_median"
+                },
+                {
+                  "op": "median",
+                  "field": "mbs_rate",
+                  "as": "mbs_median"
+                }
+              ]
+            },
+            {
+              "calculate": "(datum.k10_high_vhigh > datum.k10_median ? 'Higher distress' : 'Lower distress') + ', ' + (datum.mbs_rate > datum.mbs_median ? 'higher use' : 'lower use')",
+              "as": "group"
+            },
+            {
+              "lookup": "state",
+              "from": {
+                "data": {
+                  "url": "data/australia_states.geojson",
+                  "format": {
+                    "type": "json",
+                    "property": "features"
+                  }
+                },
+                "key": "properties.STATE_NAME"
+              },
+              "as": "geo"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "white",
+            "strokeWidth": 1.5
+          },
+          "encoding": {
+            "shape": {
+              "field": "geo",
+              "type": "geojson"
+            },
+            "color": {
+              "field": "group",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "Lower distress, lower use",
+                  "Lower distress, higher use",
+                  "Higher distress, lower use",
+                  "Higher distress, higher use"
+                ],
+                "range": [
+                  "#e4eaf1",
+                  "#7fb3d5",
+                  "#e8a07e",
+                  "#3d5a80"
+                ]
+              },
+              "legend": null
+            },
+            "tooltip": [
+              {
+                "field": "state",
+                "title": "State / territory"
+              },
+              {
+                "field": "k10_high_vhigh",
+                "title": "High/very high distress (%)"
+              },
+              {
+                "field": "mbs_rate",
+                "title": "Medicare MH users per 1,000"
+              },
+              {
+                "field": "group",
+                "title": "Group"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "url": "data/states.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "k10_high_vhigh": "number",
+                "mental_behavioural": "number",
+                "disorder_12m": "number",
+                "mbs_patients": "number",
+                "mbs_rate": "number",
+                "mbs_services": "number",
+                "lon": "number",
+                "lat": "number",
+                "col": "number",
+                "row": "number",
+                "label_lon": "number",
+                "label_lat": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "joinaggregate": [
+                {
+                  "op": "median",
+                  "field": "k10_high_vhigh",
+                  "as": "k10_median"
+                },
+                {
+                  "op": "median",
+                  "field": "mbs_rate",
+                  "as": "mbs_median"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.k10_high_vhigh > datum.k10_median && datum.mbs_rate > datum.mbs_median",
+              "as": "darkFill"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontSize": 12,
+            "fontWeight": 700
+          },
+          "encoding": {
+            "longitude": {
+              "field": "label_lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "label_lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "abbr"
+            },
+            "color": {
+              "condition": {
+                "test": "datum.darkFill && datum.abbr != 'ACT'",
+                "value": "white"
+              },
+              "value": "#13213a"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "text": "How to read the colours",
+        "fontSize": 12,
+        "anchor": "start",
+        "color": "#13213a"
+      },
+      "width": 110,
+      "height": 110,
+      "data": {
+        "values": [
+          {
+            "group": "Lower distress, lower use",
+            "distress": "Lower",
+            "use": "Lower"
+          },
+          {
+            "group": "Lower distress, higher use",
+            "distress": "Lower",
+            "use": "Higher"
+          },
+          {
+            "group": "Higher distress, lower use",
+            "distress": "Higher",
+            "use": "Lower"
+          },
+          {
+            "group": "Higher distress, higher use",
+            "distress": "Higher",
+            "use": "Higher"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "distress",
+          "type": "ordinal",
+          "sort": [
+            "Lower",
+            "Higher"
+          ],
+          "title": "Distress →",
+          "axis": {
+            "labelAngle": 0,
+            "domain": false,
+            "ticks": false
+          }
+        },
+        "y": {
+          "field": "use",
+          "type": "ordinal",
+          "sort": [
+            "Higher",
+            "Lower"
+          ],
+          "title": "Service use →",
+          "axis": {
+            "domain": false,
+            "ticks": false
+          }
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Lower distress, lower use",
+              "Lower distress, higher use",
+              "Higher distress, lower use",
+              "Higher distress, higher use"
+            ],
+            "range": [
+              "#e4eaf1",
+              "#7fb3d5",
+              "#e8a07e",
+              "#3d5a80"
+            ]
+          },
+          "legend": null
+        }
+      }
+    }
+  ],
+  "spacing": 30,
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Proportional symbol map of 88 regions (ABS Statistical Area Level 4, SA4): circle area = number of people who received a Medicare-subsidised mental health service in 2024-25; circle colour = people per 1,000 residents. Circles sit at the centre of each region (AIHW Medicare mental health services 2024-25, PHN/SA4 data; ABS ASGS 2021 SA4 boundaries).",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "height": 520,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e9eef4",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      }
+    },
+    {
+      "data": {
+        "url": "data/sa4_services.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lon": "number",
+            "lat": "number",
+            "patients": "number",
+            "patients_per_1000": "number"
+          }
+        }
+      },
+      "mark": {
+        "type": "circle",
+        "stroke": "white",
+        "strokeWidth": 0.8,
+        "opacity": 0.9
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "patients",
+          "type": "quantitative",
+          "title": "People receiving services",
+          "scale": {
+            "range": [
+              12,
+              1000
+            ]
+          },
+          "legend": {
+            "orient": "bottom-left",
+            "format": ",.0f",
+            "values": [
+              5000,
+              25000,
+              75000
+            ],
+            "symbolFillColor": "#9fb3c8",
+            "symbolStrokeColor": "white"
+          }
+        },
+        "color": {
+          "field": "patients_per_1000",
+          "type": "quantitative",
+          "title": "Per 1,000 residents",
+          "scale": {
+            "domain": [
+              25,
+              145
+            ],
+            "range": [
+              "#d0e1f2",
+              "#08306b"
+            ]
+          },
+          "legend": {
+            "orient": "top-left",
+            "gradientLength": 110
+          }
+        },
+        "order": {
+          "field": "patients",
+          "sort": "descending"
+        },
+        "tooltip": [
+          {
+            "field": "sa4_name",
+            "title": "Region"
+          },
+          {
+            "field": "state",
+            "title": "State / territory"
+          },
+          {
+            "field": "patients",
+            "title": "People receiving services",
+            "format": ","
+          },
+          {
+            "field": "patients_per_1000",
+            "title": "People per 1,000 residents"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 141.2,
+            "lat": -40.6,
+            "text": "Inner Melbourne: 140 per 1,000, the highest rate"
+          },
+          {
+            "lon": 157.5,
+            "lat": -27.2,
+            "text": "Richmond–Tweed: 139"
+          },
+          {
+            "lon": 133.4,
+            "lat": -22.4,
+            "text": "NT Outback: 28, the lowest"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "fontStyle": "italic",
+        "color": "#1d4e89"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    }
+  ]
+}

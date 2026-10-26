@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Heatmap: % with each type of 12-month mental disorder by age group. Radio buttons filter by sex. ABS NSMHW 2020-22 Table 3.",
-  "width": 500,
-  "height": 200,
+  "description": "Heatmap: % of people with each type of 12-month mental disorder, by age group. Radio buttons switch between everyone, females and males (ABS NSMHW 2020-22, Table 3).",
+  "width": 620,
+  "height": 220,
   "data": {
     "url": "data/nsmhw_disorder_age_sex.csv",
     "format": {
@@ -23,7 +23,12 @@
           "Females",
           "Males"
         ],
-        "name": "Sex: "
+        "labels": [
+          "Everyone",
+          "Females",
+          "Males"
+        ],
+        "name": "Show: "
       }
     }
   ],
@@ -32,41 +37,99 @@
       "filter": "datum.sex == sexChoice"
     }
   ],
-  "mark": "rect",
   "encoding": {
     "x": {
       "field": "age_group",
       "type": "ordinal",
-      "title": "Age group"
+      "title": "Age group (years)",
+      "axis": {
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false
+      }
     },
     "y": {
       "field": "disorder",
       "type": "nominal",
-      "title": null
-    },
-    "color": {
-      "field": "percent",
-      "type": "quantitative",
-      "title": "%",
-      "scale": {
-        "scheme": "purples",
-        "domain": [
-          0,
-          46
+      "title": null,
+      "sort": [
+        "Any disorder",
+        "Anxiety",
+        "Affective (mood)",
+        "Substance use"
+      ],
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontWeight": 600
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 2,
+        "cornerRadius": 3
+      },
+      "encoding": {
+        "color": {
+          "field": "percent",
+          "type": "quantitative",
+          "title": "% of age group",
+          "scale": {
+            "scheme": "blues",
+            "domain": [
+              0,
+              46
+            ]
+          },
+          "legend": {
+            "gradientLength": 160
+          }
+        },
+        "tooltip": [
+          {
+            "field": "disorder",
+            "title": "Disorder type"
+          },
+          {
+            "field": "age_group",
+            "title": "Age group"
+          },
+          {
+            "field": "sex",
+            "title": "Group"
+          },
+          {
+            "field": "percent",
+            "title": "% with this disorder (last 12 months)",
+            "format": ".1f"
+          }
         ]
       }
     },
-    "tooltip": [
-      {
-        "field": "disorder"
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 600
       },
-      {
-        "field": "age_group"
-      },
-      {
-        "field": "percent",
-        "title": "%"
+      "encoding": {
+        "text": {
+          "field": "percent",
+          "type": "quantitative",
+          "format": ".0f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.percent > 22",
+            "value": "white"
+          },
+          "value": "#13213a"
+        }
       }
-    ]
-  }
+    }
+  ]
 }

@@ -1,0 +1,360 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Butterfly (population-pyramid style) chart: people per 1,000 who received a Medicare-subsidised mental health service in 2024-25 by age group, males left, females right. The black tick shows the 2015-16 rate (AIHW, Medicare mental health services 2024-25, Table MBS.4).",
+  "data": {
+    "url": "data/mbs_age_sex_trend.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "age_order": "number",
+        "patients_per_1000": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.sex != 'Persons' && (datum.financial_year == '2024–25' || datum.financial_year == '2015–16')"
+    },
+    {
+      "pivot": "financial_year",
+      "value": "patients_per_1000",
+      "groupby": [
+        "sex",
+        "age_group",
+        "age_order"
+      ]
+    },
+    {
+      "calculate": "datum['2024–25']",
+      "as": "now"
+    },
+    {
+      "calculate": "datum['2015–16']",
+      "as": "then"
+    }
+  ],
+  "spacing": 0,
+  "hconcat": [
+    {
+      "title": {
+        "text": "Males",
+        "anchor": "end",
+        "fontSize": 14,
+        "color": "#13213a"
+      },
+      "width": 260,
+      "height": 300,
+      "transform": [
+        {
+          "filter": "datum.sex == 'Males'"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "age_group",
+          "type": "ordinal",
+          "sort": {
+            "field": "age_order",
+            "order": "descending"
+          },
+          "axis": null
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#6cb4d9",
+            "cornerRadiusTopLeft": 3,
+            "cornerRadiusBottomLeft": 3
+          },
+          "encoding": {
+            "x": {
+              "field": "now",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  200
+                ],
+                "reverse": true
+              },
+              "title": "people per 1,000",
+              "axis": {
+                "values": [
+                  0,
+                  50,
+                  100,
+                  150,
+                  200
+                ]
+              }
+            },
+            "tooltip": [
+              {
+                "field": "sex"
+              },
+              {
+                "field": "age_group",
+                "title": "Age group"
+              },
+              {
+                "field": "now",
+                "title": "2024–25 (per 1,000)"
+              },
+              {
+                "field": "then",
+                "title": "2015–16 (per 1,000)"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "tick",
+            "color": "#13213a",
+            "thickness": 2,
+            "bandSize": 14
+          },
+          "encoding": {
+            "x": {
+              "field": "then",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  200
+                ],
+                "reverse": true
+              },
+              "title": "people per 1,000",
+              "axis": {
+                "values": [
+                  0,
+                  50,
+                  100,
+                  150,
+                  200
+                ]
+              }
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "dx": -4,
+            "fontSize": 10,
+            "color": "#5a6b82"
+          },
+          "encoding": {
+            "x": {
+              "field": "now",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  200
+                ],
+                "reverse": true
+              },
+              "title": "people per 1,000",
+              "axis": {
+                "values": [
+                  0,
+                  50,
+                  100,
+                  150,
+                  200
+                ]
+              }
+            },
+            "text": {
+              "field": "now"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 60,
+      "height": 300,
+      "transform": [
+        {
+          "filter": "datum.sex == 'Males'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#13213a"
+      },
+      "encoding": {
+        "y": {
+          "field": "age_group",
+          "type": "ordinal",
+          "sort": {
+            "field": "age_order",
+            "order": "descending"
+          },
+          "axis": null
+        },
+        "text": {
+          "field": "age_group"
+        }
+      }
+    },
+    {
+      "title": {
+        "text": "Females",
+        "anchor": "start",
+        "fontSize": 14,
+        "color": "#13213a"
+      },
+      "width": 260,
+      "height": 300,
+      "transform": [
+        {
+          "filter": "datum.sex == 'Females'"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "age_group",
+          "type": "ordinal",
+          "sort": {
+            "field": "age_order",
+            "order": "descending"
+          },
+          "axis": null
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#1d4e89",
+            "cornerRadiusTopRight": 3,
+            "cornerRadiusBottomRight": 3
+          },
+          "encoding": {
+            "x": {
+              "field": "now",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  200
+                ],
+                "reverse": false
+              },
+              "title": "people per 1,000",
+              "axis": {
+                "values": [
+                  0,
+                  50,
+                  100,
+                  150,
+                  200
+                ]
+              }
+            },
+            "tooltip": [
+              {
+                "field": "sex"
+              },
+              {
+                "field": "age_group",
+                "title": "Age group"
+              },
+              {
+                "field": "now",
+                "title": "2024–25 (per 1,000)"
+              },
+              {
+                "field": "then",
+                "title": "2015–16 (per 1,000)"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "tick",
+            "color": "#13213a",
+            "thickness": 2,
+            "bandSize": 14
+          },
+          "encoding": {
+            "x": {
+              "field": "then",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  200
+                ],
+                "reverse": false
+              },
+              "title": "people per 1,000",
+              "axis": {
+                "values": [
+                  0,
+                  50,
+                  100,
+                  150,
+                  200
+                ]
+              }
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 4,
+            "fontSize": 10,
+            "color": "#5a6b82"
+          },
+          "encoding": {
+            "x": {
+              "field": "now",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  200
+                ],
+                "reverse": false
+              },
+              "title": "people per 1,000",
+              "axis": {
+                "values": [
+                  0,
+                  50,
+                  100,
+                  150,
+                  200
+                ]
+              }
+            },
+            "text": {
+              "field": "now"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false
+    }
+  }
+}

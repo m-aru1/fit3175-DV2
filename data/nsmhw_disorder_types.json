@@ -1,0 +1,136 @@
+[
+  {
+    "id": "root",
+    "parent": null,
+    "name": "12-month mental disorders",
+    "group": null
+  },
+  {
+    "id": "anx",
+    "parent": "root",
+    "name": "Anxiety disorders",
+    "group": "Anxiety",
+    "group_people_000": 3415.3,
+    "group_percent": 17.2
+  },
+  {
+    "id": "aff",
+    "parent": "root",
+    "name": "Affective (mood) disorders",
+    "group": "Affective (mood)",
+    "group_people_000": 1495.4,
+    "group_percent": 7.5
+  },
+  {
+    "id": "sub",
+    "parent": "root",
+    "name": "Substance use disorders",
+    "group": "Substance use",
+    "group_people_000": 647.9,
+    "group_percent": 3.3
+  },
+  {
+    "id": "a1",
+    "parent": "anx",
+    "name": "Social phobia",
+    "group": "Anxiety",
+    "people_000": 1437.7,
+    "percent": 7.3
+  },
+  {
+    "id": "a2",
+    "parent": "anx",
+    "name": "Post-traumatic stress disorder",
+    "group": "Anxiety",
+    "people_000": 1107.5,
+    "percent": 5.6
+  },
+  {
+    "id": "a3",
+    "parent": "anx",
+    "name": "Agoraphobia",
+    "group": "Anxiety",
+    "people_000": 894.0,
+    "percent": 4.5
+  },
+  {
+    "id": "a4",
+    "parent": "anx",
+    "name": "Generalised anxiety disorder",
+    "group": "Anxiety",
+    "people_000": 749.9,
+    "percent": 3.8
+  },
+  {
+    "id": "a5",
+    "parent": "anx",
+    "name": "Panic disorder",
+    "group": "Anxiety",
+    "people_000": 731.4,
+    "percent": 3.7
+  },
+  {
+    "id": "a6",
+    "parent": "anx",
+    "name": "Obsessive-compulsive disorder",
+    "group": "Anxiety",
+    "people_000": 708.5,
+    "percent": 3.6
+  },
+  {
+    "id": "f1",
+    "parent": "aff",
+    "name": "Depressive episode",
+    "group": "Affective (mood)",
+    "people_000": 968.2,
+    "percent": 4.9
+  },
+  {
+    "id": "f2",
+    "parent": "aff",
+    "name": "Bipolar affective disorder",
+    "group": "Affective (mood)",
+    "people_000": 391.3,
+    "percent": 2.0
+  },
+  {
+    "id": "f3",
+    "parent": "aff",
+    "name": "Dysthymia",
+    "group": "Affective (mood)",
+    "people_000": 343.1,
+    "percent": 1.7
+  },
+  {
+    "id": "s1",
+    "parent": "sub",
+    "name": "Alcohol harmful use",
+    "group": "Substance use",
+    "people_000": 288.7,
+    "percent": 1.5
+  },
+  {
+    "id": "s2",
+    "parent": "sub",
+    "name": "Alcohol dependence",
+    "group": "Substance use",
+    "people_000": 220.7,
+    "percent": 1.1
+  },
+  {
+    "id": "s3",
+    "parent": "sub",
+    "name": "Drug dependence",
+    "group": "Substance use",
+    "people_000": 92.9,
+    "percent": 0.5
+  },
+  {
+    "id": "s4",
+    "parent": "sub",
+    "name": "Drug abuse",
+    "group": "Substance use",
+    "people_000": 86.1,
+    "percent": 0.4
+  }
+]

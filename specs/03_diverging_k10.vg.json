@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Diverging stacked bar: K10 psychological distress level by age, females vs males. Low/Moderate go left of 0, High/Very high go right. ABS NSMHW 2020-22 Table 16.",
+  "description": "Diverging stacked bar chart: level of psychological distress (K10) by age group, females vs males. Low/Moderate extend left of zero, High/Very high extend right (ABS NSMHW 2020-22, Table 16).",
   "data": {
     "url": "data/nsmhw_k10_age_sex.csv",
     "format": {
@@ -27,61 +27,119 @@
     "column": {
       "field": "sex",
       "type": "nominal",
-      "title": null
+      "sort": [
+        "Females",
+        "Males"
+      ],
+      "title": null,
+      "header": {
+        "labelFontSize": 15,
+        "labelFontWeight": 600,
+        "labelColor": "#13213a"
+      }
     }
   },
   "spec": {
-    "width": 260,
-    "height": 200,
-    "mark": "bar",
-    "encoding": {
-      "y": {
-        "field": "age_group",
-        "type": "ordinal",
-        "title": "Age group"
-      },
-      "x": {
-        "field": "signed",
-        "type": "quantitative",
-        "title": "% of age group (left = low/moderate, right = high/very high)"
-      },
-      "color": {
-        "field": "level",
-        "type": "nominal",
-        "title": "Distress",
-        "scale": {
-          "domain": [
-            "Low",
-            "Moderate",
-            "High",
-            "Very high"
-          ],
-          "range": [
-            "#91bfdb",
-            "#e0f3f8",
-            "#fc8d59",
-            "#d73027"
+    "width": 300,
+    "height": 230,
+    "layer": [
+      {
+        "mark": {
+          "type": "bar",
+          "height": {
+            "band": 0.8
+          }
+        },
+        "encoding": {
+          "y": {
+            "field": "age_group",
+            "type": "ordinal",
+            "title": null,
+            "axis": {
+              "domain": false,
+              "ticks": false
+            }
+          },
+          "x": {
+            "field": "signed",
+            "type": "quantitative",
+            "title": "% of age group",
+            "scale": {
+              "domain": [
+                -100,
+                50
+              ]
+            },
+            "axis": {
+              "labelExpr": "abs(datum.value) + '%'",
+              "values": [
+                -100,
+                -50,
+                0,
+                50
+              ],
+              "grid": true
+            }
+          },
+          "color": {
+            "field": "level",
+            "type": "nominal",
+            "title": "Distress level",
+            "scale": {
+              "domain": [
+                "Low",
+                "Moderate",
+                "High",
+                "Very high"
+              ],
+              "range": [
+                "#8fb8de",
+                "#d4e4f4",
+                "#f2a65a",
+                "#c8553d"
+              ]
+            },
+            "legend": {
+              "orient": "top",
+              "direction": "horizontal"
+            }
+          },
+          "order": {
+            "field": "stackOrder"
+          },
+          "tooltip": [
+            {
+              "field": "sex",
+              "title": "Group"
+            },
+            {
+              "field": "age_group",
+              "title": "Age group"
+            },
+            {
+              "field": "level",
+              "title": "Distress level"
+            },
+            {
+              "field": "percent",
+              "title": "% of age group",
+              "format": ".1f"
+            }
           ]
         }
       },
-      "order": {
-        "field": "stackOrder"
-      },
-      "tooltip": [
-        {
-          "field": "sex"
+      {
+        "mark": {
+          "type": "rule",
+          "color": "#13213a",
+          "strokeWidth": 1.2
         },
-        {
-          "field": "age_group"
-        },
-        {
-          "field": "level"
-        },
-        {
-          "field": "percent",
-          "title": "%"
+        "encoding": {
+          "x": {
+            "datum": 0
+          }
         }
-      ]
-    }
+      }
+    ]
   }
 }

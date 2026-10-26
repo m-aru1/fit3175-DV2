@@ -1,10 +1,121 @@
-/* Basic MVP styling - final design still to do */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-  line-height: 1.5;
+/* ---------- Colour and type tokens ---------- */
+:root {
+  --navy: #0b2545;      /* header and darkest marks */
+  --blue: #1d4e89;      /* main accent: females, key series */
+  --mid: #3a7ca5;       /* links, secondary accents */
+  --light: #6cb4d9;     /* males, second series */
+  --pale: #eef3f8;      /* panels and card backgrounds */
+  --accent: #e07a5f;    /* warm highlight, used sparingly */
+  --ink: #13213a;       /* body text */
+  --muted: #5a6b82;     /* captions and notes */
+  --rule: #d8e1eb;      /* dividers */
+  --bg: #fbfcfe;        /* page background */
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
 }
-h2 { margin-top: 40px; border-bottom: 1px solid #ccc; }
-.todo { color: #b00; font-style: italic; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* One content column; text blocks are narrower for comfortable line length */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+p, ul { max-width: 42em; }
+
+/* ---------- Header ---------- */
+.hero { background: var(--navy); color: #eaf1f9; padding: 64px 0 40px; }
+.kicker { text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: #9cc3e6; margin: 0 0 8px; }
+.hero h1 { font-family: var(--serif); font-size: 60px; line-height: 1.05; margin: 0 0 16px; color: #fff; }
+.lede { font-size: 21px; max-width: 36em; margin: 0 0 32px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 28px; }
+.stat { border-top: 3px solid var(--light); padding-top: 12px; }
+.stat-num { display: block; font-family: var(--serif); font-size: 40px; font-weight: 700; color: #fff; line-height: 1.1; }
+.stat-label { font-size: 15px; color: #c5d9ee; }
+.byline { font-size: 14px; color: #9cc3e6; margin: 0; }
+
+/* ---------- Section navigation ---------- */
+.toc { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-top: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); font-size: 15px; font-weight: 600; }
+.toc a { color: var(--blue); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+/* ---------- Sections ---------- */
+section { padding: 56px 0; border-bottom: 1px solid var(--rule); }
+.section-label { text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 700; color: var(--mid); margin: 0 0 8px; }
+h2 { font-family: var(--serif); font-size: 32px; line-height: 1.2; margin: 0 0 16px; color: var(--navy); }
+h3 { font-family: var(--serif); font-size: 21px; line-height: 1.3; margin: 0 0 8px; color: var(--navy); }
+h3.sub { margin-top: 48px; }
+.intro { margin-bottom: 24px; }
+.note { font-size: 15px; color: var(--muted); }
+
+/* ---------- Layout grids ---------- */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+figure + .grid-2, .grid-2 + figure, .intro + .grid-2 { margin-top: 48px; }
+.grid-2.align-start { align-items: start; }
+.grid-2 > * { min-width: 0; }
+.text-col p { max-width: none; }
+
+/* ---------- Charts ---------- */
+figure { margin: 32px 0 0; }
+.chart-col { margin-top: 0; }
+.chart-title { font-size: 18px; margin-bottom: 4px; }
+.chart { width: 100%; overflow-x: auto; margin: 8px 0; }
+.chart-center { display: flex; justify-content: center; }
+figcaption { font-size: 14px; color: var(--muted); max-width: 46em; margin-top: 6px; line-height: 1.5; }
+
+/* Inline legend for the dumbbell chart */
+.legend-inline { font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-left: 10px; }
+.dot-dark { background: var(--navy); margin-left: 0; }
+.dot-light { background: var(--light); }
+.dot-pale { background: #a9cce3; margin-left: 0; }
+.dot-dark2 { background: var(--navy); }
+
+/* Vega-Lite controls (radio buttons, drop-down) */
+.vega-bindings { font-size: 15px; margin-top: 8px; }
+.vega-bind-name { font-weight: 600; margin-right: 8px; }
+.vega-bind label { margin-right: 14px; }
+.vega-bind input[type="radio"] { margin: 0 4px 0 0; vertical-align: -1px; accent-color: var(--blue); }
+.vega-bind select { font: inherit; padding: 4px 8px; border: 1px solid #b8c6d6; border-radius: 6px; background: #fff; color: var(--ink); }
+
+/* K10 score table */
+.k10 { border-collapse: collapse; font-size: 16px; margin: 40px 0 0; }
+.k10 th, .k10 td { padding: 4px 16px 4px 0; border-bottom: 1px solid var(--rule); text-align: left; }
+.k10 th { color: var(--muted); font-weight: 600; }
+
+/* ---------- Takeaways ---------- */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card { background: var(--pale); border-top: 4px solid var(--blue); padding: 20px; }
+.card p { font-size: 16px; margin: 0; }
+.closing { margin-top: 40px; }
+.support { background: var(--pale); border-left: 4px solid var(--accent); padding: 18px 22px; font-size: 16px; max-width: none; }
+.support h3 { margin-bottom: 4px; }
+.support p { margin: 6px 0 0; }
+
+/* ---------- Footer ---------- */
+footer { background: #e9eff6; padding: 40px 0 56px; font-size: 15px; }
+footer h2 { font-size: 22px; }
+.sources li { margin-bottom: 6px; }
+.meta { color: var(--muted); }
+a { color: var(--mid); }
+
+/* ---------- Header picture ---------- */
+/* Same 3 columns as the stats row below: text spans the first two, the picture is centred in the third (over the third stat) */
+.hero-top { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; margin-bottom: 40px; }
+.hero-top > div { grid-column: span 2; }
+.hero-art { width: 100%; max-width: 150px; height: auto; display: block; justify-self: center; margin: 8px 0; }
+
+/* ---------- Smaller screens ---------- */
+@media (max-width: 900px) {
+  .grid-2, .cards, .stats, .hero-top { grid-template-columns: 1fr; }
+  .hero-top { gap: 24px; }
+  .hero-top > div { grid-column: auto; }
+  .hero-art { max-width: 120px; justify-self: start; margin: 0 0 8px; }
+  .hero h1 { font-size: 42px; }
+}

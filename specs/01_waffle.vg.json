@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Waffle chart: out of 100 Australians aged 16-85, how many had a mental disorder (lifetime vs last 12 months). ABS NSMHW 2020-22.",
+  "description": "Waffle chart: out of every 100 Australians aged 16-85, how many have had a mental disorder at some time in their life, and in the last 12 months (ABS NSMHW 2020-22).",
   "data": {
     "url": "data/nsmhw_headline.csv",
     "format": {
@@ -11,6 +11,10 @@
     }
   },
   "transform": [
+    {
+      "calculate": "datum.measure == 'Lifetime mental disorder' ? 'At some time in their life' : 'In the last 12 months'",
+      "as": "panel"
+    },
     {
       "calculate": "sequence(0, 100)",
       "as": "cell"
@@ -29,23 +33,36 @@
       "as": "row"
     },
     {
-      "calculate": "datum.cell < round(datum.percent) ? 'Yes' : 'No'",
-      "as": "had_disorder"
+      "calculate": "datum.cell < round(datum.percent) ? 'Had a mental disorder' : 'Did not'",
+      "as": "status"
     }
   ],
   "facet": {
     "column": {
-      "field": "measure",
+      "field": "panel",
       "type": "nominal",
-      "title": null
+      "sort": [
+        "At some time in their life",
+        "In the last 12 months"
+      ],
+      "title": null,
+      "header": {
+        "labelFontSize": 15,
+        "labelFontWeight": 600,
+        "labelPadding": 10,
+        "labelColor": "#13213a"
+      }
     }
   },
+  "spacing": 48,
   "spec": {
-    "width": 200,
-    "height": 200,
+    "width": 230,
+    "height": 230,
     "mark": {
       "type": "square",
-      "size": 150
+      "size": 300,
+      "cornerRadius": 3,
+      "opacity": 1
     },
     "encoding": {
       "x": {
@@ -60,29 +77,42 @@
         "sort": "descending"
       },
       "color": {
-        "field": "had_disorder",
+        "field": "status",
         "type": "nominal",
-        "title": "Had a disorder",
         "scale": {
           "domain": [
-            "Yes",
-            "No"
+            "Had a mental disorder",
+            "Did not"
           ],
           "range": [
-            "#6a4c93",
-            "#ddd"
+            "#1d4e89",
+            "#dce7f2"
           ]
+        },
+        "legend": {
+          "orient": "bottom",
+          "title": null,
+          "labelLimit": 250,
+          "columnPadding": 24
         }
       },
       "tooltip": [
         {
-          "field": "measure"
+          "field": "measure",
+          "title": "Measure"
         },
         {
           "field": "percent",
-          "title": "%"
+          "title": "% of people aged 16–85",
+          "format": ".1f"
         }
       ]
+    }
+  },
+  "resolve": {
+    "scale": {
+      "x": "independent",
+      "y": "independent"
     }
   }
 }

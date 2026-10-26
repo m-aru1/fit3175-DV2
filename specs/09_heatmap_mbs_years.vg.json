@@ -1,0 +1,133 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap (age group x financial year), one panel for females and one for males: people per 1,000 who received a Medicare-subsidised mental health service (AIHW, Medicare mental health services 2024-25, Table MBS.4).",
+  "data": {
+    "url": "data/mbs_age_sex_trend.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "age_order": "number",
+        "patients_per_1000": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.sex != 'Persons'"
+    }
+  ],
+  "facet": {
+    "column": {
+      "field": "sex",
+      "type": "nominal",
+      "sort": [
+        "Females",
+        "Males"
+      ],
+      "title": null,
+      "header": {
+        "labelFontSize": 15,
+        "labelFontWeight": 600,
+        "labelColor": "#13213a"
+      }
+    }
+  },
+  "spec": {
+    "width": 300,
+    "height": 260,
+    "layer": [
+      {
+        "mark": {
+          "type": "rect",
+          "stroke": "white",
+          "strokeWidth": 1
+        },
+        "encoding": {
+          "x": {
+            "field": "financial_year",
+            "type": "ordinal",
+            "title": null,
+            "axis": {
+              "labelAngle": -45,
+              "labelExpr": "slice(datum.value, 0, 4)",
+              "ticks": false,
+              "domain": false
+            }
+          },
+          "y": {
+            "field": "age_group",
+            "type": "ordinal",
+            "sort": {
+              "field": "age_order",
+              "order": "ascending"
+            },
+            "title": null,
+            "axis": {
+              "ticks": false,
+              "domain": false
+            }
+          },
+          "color": {
+            "field": "patients_per_1000",
+            "type": "quantitative",
+            "title": [
+              "People per 1,000",
+              "receiving services"
+            ],
+            "scale": {
+              "scheme": "blues"
+            }
+          },
+          "tooltip": [
+            {
+              "field": "sex",
+              "title": "Sex"
+            },
+            {
+              "field": "age_group",
+              "title": "Age group"
+            },
+            {
+              "field": "financial_year",
+              "title": "Financial year"
+            },
+            {
+              "field": "patients_per_1000",
+              "title": "People per 1,000"
+            }
+          ]
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.patients_per_1000 >= 230"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "fontSize": 10,
+          "fontWeight": 700,
+          "color": "white"
+        },
+        "encoding": {
+          "x": {
+            "field": "financial_year",
+            "type": "ordinal"
+          },
+          "y": {
+            "field": "age_group",
+            "type": "ordinal",
+            "sort": {
+              "field": "age_order",
+              "order": "ascending"
+            }
+          },
+          "text": {
+            "field": "patients_per_1000"
+          }
+        }
+      }
+    ]
+  }
+}

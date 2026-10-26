@@ -1,0 +1,189 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bump chart: each state's rank (1 = highest) for people per 1,000 receiving Medicare-subsidised mental health services, 2015-16 to 2024-25. WA and SA are highlighted (AIHW MBS Table MBS.3).",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "height": 300,
+  "data": {
+    "url": "data/mbs_state_trend.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year_index": "number",
+        "patients_per_1000": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.abbr != 'Australia'"
+    },
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "patients_per_1000",
+          "order": "descending"
+        },
+        {
+          "field": "abbr"
+        }
+      ],
+      "groupby": [
+        "financial_year"
+      ]
+    },
+    {
+      "calculate": "datum.abbr == 'WA' || datum.abbr == 'SA' ? datum.abbr : 'Other states'",
+      "as": "highlight"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "financial_year",
+      "type": "ordinal",
+      "title": null,
+      "scale": {
+        "padding": 0.9
+      },
+      "axis": {
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "rank",
+      "type": "ordinal",
+      "title": "Rank (1 = highest rate)",
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelPadding": 40
+      }
+    },
+    "color": {
+      "field": "highlight",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "WA",
+          "SA",
+          "Other states"
+        ],
+        "range": [
+          "#1d4e89",
+          "#e07a5f",
+          "#c3d1df"
+        ]
+      },
+      "legend": null
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "detail": {
+          "field": "abbr"
+        },
+        "order": {
+          "field": "year_index"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 90,
+        "opacity": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "abbr",
+            "title": "State"
+          },
+          {
+            "field": "financial_year",
+            "title": "Year"
+          },
+          {
+            "field": "rank",
+            "title": "Rank"
+          },
+          {
+            "field": "patients_per_1000",
+            "title": "People per 1,000"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year_index == 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "fontSize": 12,
+        "fontWeight": 700
+      },
+      "encoding": {
+        "text": {
+          "field": "abbr"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.highlight != 'Other states'",
+            "field": "highlight",
+            "type": "nominal"
+          },
+          "value": "#5a6b82"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year_index == 9"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontSize": 12,
+        "fontWeight": 700
+      },
+      "encoding": {
+        "text": {
+          "field": "abbr"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.highlight != 'Other states'",
+            "field": "highlight",
+            "type": "nominal"
+          },
+          "value": "#5a6b82"
+        }
+      }
+    }
+  ]
+}
