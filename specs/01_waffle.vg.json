@@ -12,7 +12,7 @@
   },
   "transform": [
     {
-      "calculate": "datum.measure == 'Lifetime mental disorder' ? 'At some time in their life' : 'In the last 12 months'",
+      "calculate": "datum.measure == 'Lifetime mental disorder' ? 'At some time in their life' : 'In the past 12 months'",
       "as": "panel"
     },
     {
@@ -43,7 +43,7 @@
       "type": "nominal",
       "sort": [
         "At some time in their life",
-        "In the last 12 months"
+        "In the past 12 months"
       ],
       "title": null,
       "header": {

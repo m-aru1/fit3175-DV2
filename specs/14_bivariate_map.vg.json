@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Bivariate choropleth: each state is coloured by two measures at once. High/very high psychological distress (ABS NHS 2022) and people per 1,000 using Medicare mental health services (AIHW 2024-25), each split at the median of the eight states/territories.",
+  "description": "Bivariate choropleth: each state is coloured by two measures at once. High/very high psychological distress (ABS NHS 2022) and people per 1,000 using Medicare mental health services (AIHW 2024-25), each split at the median of the eight states/territories. Callouts with leader lines point to South Australia and the Northern Territory (higher distress but lower service use) and Victoria (highest service use).",
   "padding": 32,
   "hconcat": [
     {
@@ -94,7 +94,7 @@
                   "Higher distress, higher use"
                 ],
                 "range": [
-                  "#e4eaf1",
+                  "#d3dce6",
                   "#7fb3d5",
                   "#e8a07e",
                   "#3d5a80"
@@ -188,6 +188,235 @@
               "value": "#13213a"
             }
           }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "name": "South Australia",
+                "detail": "Higher distress but lower service use\n17.0% high distress · 92 per 1,000 use services",
+                "tl": 127.0,
+                "tt": -37.4,
+                "ll": 128.6,
+                "lt": -35.6,
+                "sl": 134.3,
+                "st": -31.8
+              },
+              {
+                "name": "Northern Territory",
+                "detail": "Higher distress but lower service use\n14.1% high distress · 55 per 1,000 use services",
+                "tl": 122.5,
+                "tt": -10.2,
+                "ll": 129.8,
+                "lt": -10.6,
+                "sl": 131.6,
+                "st": -15.5
+              },
+              {
+                "name": "Victoria",
+                "detail": "Highest service use of any state\n14.0% high distress · 110 per 1,000 use services",
+                "tl": 134.8,
+                "tt": -42.2,
+                "ll": 138.6,
+                "lt": -40.4,
+                "sl": 143.4,
+                "st": -37.2
+              }
+            ]
+          },
+          "mark": {
+            "type": "rule",
+            "color": "#13213a",
+            "strokeWidth": 1.2
+          },
+          "encoding": {
+            "longitude": {
+              "field": "ll",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lt",
+              "type": "quantitative"
+            },
+            "longitude2": {
+              "field": "sl"
+            },
+            "latitude2": {
+              "field": "st"
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "name": "South Australia",
+                "detail": "Higher distress but lower service use\n17.0% high distress · 92 per 1,000 use services",
+                "tl": 127.0,
+                "tt": -37.4,
+                "ll": 128.6,
+                "lt": -35.6,
+                "sl": 134.3,
+                "st": -31.8
+              },
+              {
+                "name": "Northern Territory",
+                "detail": "Higher distress but lower service use\n14.1% high distress · 55 per 1,000 use services",
+                "tl": 122.5,
+                "tt": -10.2,
+                "ll": 129.8,
+                "lt": -10.6,
+                "sl": 131.6,
+                "st": -15.5
+              },
+              {
+                "name": "Victoria",
+                "detail": "Highest service use of any state\n14.0% high distress · 110 per 1,000 use services",
+                "tl": 134.8,
+                "tt": -42.2,
+                "ll": 138.6,
+                "lt": -40.4,
+                "sl": 143.4,
+                "st": -37.2
+              }
+            ]
+          },
+          "mark": {
+            "type": "circle",
+            "color": "#13213a",
+            "size": 30,
+            "opacity": 1
+          },
+          "encoding": {
+            "longitude": {
+              "field": "sl",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "st",
+              "type": "quantitative"
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "name": "South Australia",
+                "detail": "Higher distress but lower service use\n17.0% high distress · 92 per 1,000 use services",
+                "tl": 127.0,
+                "tt": -37.4,
+                "ll": 128.6,
+                "lt": -35.6,
+                "sl": 134.3,
+                "st": -31.8
+              },
+              {
+                "name": "Northern Territory",
+                "detail": "Higher distress but lower service use\n14.1% high distress · 55 per 1,000 use services",
+                "tl": 122.5,
+                "tt": -10.2,
+                "ll": 129.8,
+                "lt": -10.6,
+                "sl": 131.6,
+                "st": -15.5
+              },
+              {
+                "name": "Victoria",
+                "detail": "Highest service use of any state\n14.0% high distress · 110 per 1,000 use services",
+                "tl": 134.8,
+                "tt": -42.2,
+                "ll": 138.6,
+                "lt": -40.4,
+                "sl": 143.4,
+                "st": -37.2
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "fontSize": 13,
+            "fontWeight": 700,
+            "color": "#13213a",
+            "baseline": "bottom",
+            "dy": -4
+          },
+          "encoding": {
+            "longitude": {
+              "field": "tl",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "tt",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "name"
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "name": "South Australia",
+                "detail": "Higher distress but lower service use\n17.0% high distress · 92 per 1,000 use services",
+                "tl": 127.0,
+                "tt": -37.4,
+                "ll": 128.6,
+                "lt": -35.6,
+                "sl": 134.3,
+                "st": -31.8
+              },
+              {
+                "name": "Northern Territory",
+                "detail": "Higher distress but lower service use\n14.1% high distress · 55 per 1,000 use services",
+                "tl": 122.5,
+                "tt": -10.2,
+                "ll": 129.8,
+                "lt": -10.6,
+                "sl": 131.6,
+                "st": -15.5
+              },
+              {
+                "name": "Victoria",
+                "detail": "Highest service use of any state\n14.0% high distress · 110 per 1,000 use services",
+                "tl": 134.8,
+                "tt": -42.2,
+                "ll": 138.6,
+                "lt": -40.4,
+                "sl": 143.4,
+                "st": -37.2
+              }
+            ]
+          },
+          "transform": [
+            {
+              "calculate": "split(datum.detail, '\\n')",
+              "as": "lines"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontSize": 12,
+            "color": "#5a6b82",
+            "baseline": "top",
+            "dy": 2,
+            "lineHeight": 15
+          },
+          "encoding": {
+            "longitude": {
+              "field": "tl",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "tt",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "lines"
+            }
+          }
         }
       ]
     },
@@ -268,7 +497,7 @@
               "Higher distress, higher use"
             ],
             "range": [
-              "#e4eaf1",
+              "#d3dce6",
               "#7fb3d5",
               "#e8a07e",
               "#3d5a80"

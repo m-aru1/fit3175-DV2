@@ -1,0 +1,21 @@
+disorder_class,professional,pro_order,percent
+All people with a disorder,Any health professional,0,46.6
+All people with a disorder,GP,1,37.2
+All people with a disorder,Psychologist,2,21.6
+All people with a disorder,Psychiatrist,3,10.3
+All people with a disorder,Other mental health professional,4,10.3
+Affective (mood),Any health professional,0,63.7
+Affective (mood),GP,1,52.7
+Affective (mood),Psychologist,2,29.7
+Affective (mood),Psychiatrist,3,16.1
+Affective (mood),Other mental health professional,4,15.5
+Anxiety,Any health professional,0,48.0
+Anxiety,GP,1,38.6
+Anxiety,Psychologist,2,23.3
+Anxiety,Psychiatrist,3,10.7
+Anxiety,Other mental health professional,4,11.1
+Substance use,Any health professional,0,41.9
+Substance use,GP,1,32.8
+Substance use,Psychologist,2,17.7
+Substance use,Psychiatrist,3,10.6
+Substance use,Other mental health professional,4,13.3

@@ -1,8 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Heatmap: % of people with each type of 12-month mental disorder, by age group. Radio buttons switch between everyone, females and males (ABS NSMHW 2020-22, Table 3).",
-  "width": 620,
-  "height": 220,
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "height": 320,
   "data": {
     "url": "data/nsmhw_disorder_age_sex.csv",
     "format": {
@@ -86,7 +90,7 @@
             ]
           },
           "legend": {
-            "gradientLength": 160
+            "gradientLength": 220
           }
         },
         "tooltip": [
@@ -104,7 +108,7 @@
           },
           {
             "field": "percent",
-            "title": "% with this disorder (last 12 months)",
+            "title": "% with this disorder (past 12 months)",
             "format": ".1f"
           }
         ]
@@ -113,7 +117,7 @@
     {
       "mark": {
         "type": "text",
-        "fontSize": 12,
+        "fontSize": 15,
         "fontWeight": 600
       },
       "encoding": {

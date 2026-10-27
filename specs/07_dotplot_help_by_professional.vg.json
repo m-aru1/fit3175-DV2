@@ -1,0 +1,331 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Connected dot plot: % of people with a mental disorder in the past 12 months who consulted each type of health professional for their mental health, by disorder class (Harris et al. 2025, ANZ J Psychiatry 59(9), Table 3; ABS NSMHW 2020-22 data).",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "height": 280,
+  "data": {
+    "url": "data/help_by_professional.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "pro_order": "number",
+        "percent": "number"
+      }
+    }
+  },
+  "encoding": {
+    "y": {
+      "field": "professional",
+      "type": "nominal",
+      "sort": {
+        "field": "pro_order"
+      },
+      "title": null,
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 13,
+        "labelFontWeight": 600,
+        "labelColor": "#13213a",
+        "labelLimit": 240,
+        "labelPadding": 10
+      }
+    },
+    "x": {
+      "type": "quantitative",
+      "title": "% of people with the disorder who saw this type of professional for their mental health",
+      "scale": {
+        "domain": [
+          0,
+          80
+        ]
+      },
+      "axis": {
+        "values": [
+          0,
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80
+        ],
+        "labelExpr": "datum.value + '%'",
+        "grid": true,
+        "domain": false,
+        "ticks": false,
+        "titlePadding": 18
+      }
+    }
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "min",
+              "field": "percent",
+              "as": "low"
+            },
+            {
+              "op": "max",
+              "field": "percent",
+              "as": "high"
+            }
+          ],
+          "groupby": [
+            "professional",
+            "pro_order"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 6,
+        "strokeCap": "round",
+        "color": "#9fb4c9"
+      },
+      "encoding": {
+        "x": {
+          "field": "low"
+        },
+        "x2": {
+          "field": "high"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.disorder_class != 'All people with a disorder'"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 220,
+        "opacity": 1,
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "percent"
+        },
+        "color": {
+          "field": "disorder_class",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "All people with a disorder",
+              "Affective (mood)",
+              "Anxiety",
+              "Substance use"
+            ],
+            "range": [
+              "#0b2545",
+              "#3a7ca5",
+              "#6cb4d9",
+              "#e07a5f"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "columnPadding": 18,
+            "labelFontSize": 13,
+            "symbolSize": 160
+          }
+        },
+        "shape": {
+          "field": "disorder_class",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "All people with a disorder",
+              "Affective (mood)",
+              "Anxiety",
+              "Substance use"
+            ],
+            "range": [
+              "diamond",
+              "circle",
+              "circle",
+              "circle"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "disorder_class",
+            "title": "People with"
+          },
+          {
+            "field": "professional",
+            "title": "Saw"
+          },
+          {
+            "field": "percent",
+            "title": "%",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.disorder_class == 'All people with a disorder'"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 260,
+        "opacity": 1,
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "percent"
+        },
+        "color": {
+          "field": "disorder_class",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "All people with a disorder",
+              "Affective (mood)",
+              "Anxiety",
+              "Substance use"
+            ],
+            "range": [
+              "#0b2545",
+              "#3a7ca5",
+              "#6cb4d9",
+              "#e07a5f"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "columnPadding": 18,
+            "labelFontSize": 13,
+            "symbolSize": 160
+          }
+        },
+        "shape": {
+          "field": "disorder_class",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "All people with a disorder",
+              "Affective (mood)",
+              "Anxiety",
+              "Substance use"
+            ],
+            "range": [
+              "diamond",
+              "circle",
+              "circle",
+              "circle"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "disorder_class",
+            "title": "People with"
+          },
+          {
+            "field": "professional",
+            "title": "Saw"
+          },
+          {
+            "field": "percent",
+            "title": "%",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.disorder_class == 'All people with a disorder'"
+        },
+        {
+          "calculate": "format(datum.percent, '.0f') + '%'",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": -15,
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#0b2545"
+      },
+      "encoding": {
+        "x": {
+          "field": "percent"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "min",
+              "field": "percent",
+              "as": "low"
+            },
+            {
+              "op": "max",
+              "field": "percent",
+              "as": "high"
+            }
+          ],
+          "groupby": [
+            "professional",
+            "pro_order"
+          ]
+        },
+        {
+          "calculate": "format(datum.high - datum.low, '.0f') + ' pts apart'",
+          "as": "gap"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 14,
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#5a6b82"
+      },
+      "encoding": {
+        "x": {
+          "field": "high"
+        },
+        "text": {
+          "field": "gap"
+        }
+      }
+    }
+  ]
+}

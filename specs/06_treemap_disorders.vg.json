@@ -56,6 +56,76 @@
         {
           "type": "filter",
           "expr": "!datum.children"
+        },
+        {
+          "type": "formula",
+          "as": "availW",
+          "expr": "datum.x1 - datum.x0 - 14"
+        },
+        {
+          "type": "formula",
+          "as": "words",
+          "expr": "split(replace(datum.name, '-', '- '), ' ')"
+        },
+        {
+          "type": "formula",
+          "as": "nameWrapped",
+          "expr": "datum.words[0]"
+        },
+        {
+          "type": "formula",
+          "as": "nameWrapped",
+          "expr": "length(datum.words) > 1 ? (length(peek(split(datum.nameWrapped, '\\n')) + ' ' + datum.words[1]) * 7.6 <= datum.availW ? datum.nameWrapped + ' ' + datum.words[1] : datum.nameWrapped + '\\n' + datum.words[1]) : datum.nameWrapped"
+        },
+        {
+          "type": "formula",
+          "as": "nameWrapped",
+          "expr": "length(datum.words) > 2 ? (length(peek(split(datum.nameWrapped, '\\n')) + ' ' + datum.words[2]) * 7.6 <= datum.availW ? datum.nameWrapped + ' ' + datum.words[2] : datum.nameWrapped + '\\n' + datum.words[2]) : datum.nameWrapped"
+        },
+        {
+          "type": "formula",
+          "as": "nameWrapped",
+          "expr": "length(datum.words) > 3 ? (length(peek(split(datum.nameWrapped, '\\n')) + ' ' + datum.words[3]) * 7.6 <= datum.availW ? datum.nameWrapped + ' ' + datum.words[3] : datum.nameWrapped + '\\n' + datum.words[3]) : datum.nameWrapped"
+        },
+        {
+          "type": "formula",
+          "as": "nameWrapped",
+          "expr": "length(datum.words) > 4 ? (length(peek(split(datum.nameWrapped, '\\n')) + ' ' + datum.words[4]) * 7.6 <= datum.availW ? datum.nameWrapped + ' ' + datum.words[4] : datum.nameWrapped + '\\n' + datum.words[4]) : datum.nameWrapped"
+        },
+        {
+          "type": "formula",
+          "as": "nameWrapped",
+          "expr": "replace(datum.nameWrapped, '- ', '-')"
+        },
+        {
+          "type": "formula",
+          "as": "nameLines",
+          "expr": "length(split(datum.nameWrapped, '\\n'))"
+        },
+        {
+          "type": "formula",
+          "as": "valueFull",
+          "expr": "format(datum.percent, '.1f') + '%  ·  ' + format(datum.people_000 * 1000, ',.0f')"
+        },
+        {
+          "type": "formula",
+          "as": "valueWrapped",
+          "expr": "length(datum.valueFull) * 8.6 <= datum.availW ? datum.valueFull : format(datum.percent, '.1f') + '%\\n' + format(datum.people_000 * 1000, ',.0f')"
+        },
+        {
+          "type": "formula",
+          "as": "valueLines",
+          "expr": "length(split(datum.valueWrapped, '\\n'))"
+        },
+        {
+          "type": "formula",
+          "as": "nameFits",
+          "expr": "max(length(split(datum.nameWrapped, '\\n')[0] || ''), length(split(datum.nameWrapped, '\\n')[1] || ''), length(split(datum.nameWrapped, '\\n')[2] || ''), length(split(datum.nameWrapped, '\\n')[3] || '')) * 7.6 <= datum.availW"
+        },
+        {
+          "type": "formula",
+          "as": "valueFits",
+          "expr": "max(length(split(datum.valueWrapped, '\\n')[0] || ''), length(split(datum.valueWrapped, '\\n')[1] || ''), length(split(datum.valueWrapped, '\\n')[2] || ''), length(split(datum.valueWrapped, '\\n')[3] || '')) * 8.6 <= datum.availW"
         }
       ]
     }
@@ -204,7 +274,7 @@
             "offset": -6
           },
           "text": {
-            "field": "name"
+            "field": "nameWrapped"
           },
           "fontSize": {
             "value": 14
@@ -219,10 +289,16 @@
             "signal": "datum.x1 - datum.x0 - 12"
           },
           "opacity": {
-            "signal": "datum.x1 - datum.x0 > 50 && datum.y1 - datum.y0 > 26 ? 1 : 0"
+            "signal": "datum.nameFits && datum.y1 - datum.y0 > 26 + (datum.nameLines - 1) * 17 ? 1 : 0"
           },
           "font": {
             "value": "\"Source Sans 3\", sans-serif"
+          },
+          "lineBreak": {
+            "value": "\n"
+          },
+          "lineHeight": {
+            "value": 17
           }
         }
       }
@@ -240,11 +316,10 @@
             "offset": 8
           },
           "y": {
-            "field": "y0",
-            "offset": 16
+            "signal": "datum.y0 + 16 + (datum.nameLines - 1) * 17"
           },
           "text": {
-            "signal": "format(datum.percent, '.1f') + '%  ·  ' + format(datum.people_000 * 1000, ',.0f')"
+            "field": "valueWrapped"
           },
           "fontSize": {
             "value": 16
@@ -256,13 +331,19 @@
             "signal": "datum.x1 - datum.x0 - 12"
           },
           "opacity": {
-            "signal": "datum.x1 - datum.x0 > 50 && datum.y1 - datum.y0 > 52 ? 1 : 0"
+            "signal": "datum.nameFits && datum.valueFits && datum.y1 - datum.y0 > 52 + (datum.nameLines - 1) * 17 + (datum.valueLines - 1) * 19 ? 1 : 0"
           },
           "font": {
             "value": "\"Source Sans 3\", sans-serif"
           },
           "fontWeight": {
             "value": 600
+          },
+          "lineBreak": {
+            "value": "\n"
+          },
+          "lineHeight": {
+            "value": 19
           }
         }
       }

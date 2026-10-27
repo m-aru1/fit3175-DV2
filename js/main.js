@@ -31,7 +31,7 @@ const charts = {
   "#vis-choropleth":    "specs/05_choropleth_states.vg.json",
   "#vis-pyramid":       "specs/08_pyramid_mbs_age_sex.vg.json",
   "#vis-heatmap-years": "specs/09_heatmap_mbs_years.vg.json",
-  "#vis-dumbbell":      "specs/07_dumbbell_change_age.vg.json",
+  "#vis-help":          "specs/07_dotplot_help_by_professional.vg.json",
   "#vis-bivariate":     "specs/14_bivariate_map.vg.json",
   "#vis-symbol":        "specs/11_symbol_map_mbs.vg.json",
   "#vis-bump":          "specs/13_bump_states.vg.json"

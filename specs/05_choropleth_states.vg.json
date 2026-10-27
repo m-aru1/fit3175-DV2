@@ -21,7 +21,7 @@
         "labels": [
           "High or very high distress (adults, 2022)",
           "Long-term mental/behavioural condition (2022)",
-          "12-month mental disorder (ages 16–85, 2020–22)"
+          "Mental disorder in the past 12 months (ages 16–85, 2020–22)"
         ],
         "name": "Indicator: "
       }
@@ -97,7 +97,7 @@
           "title": "% of people",
           "scale": {
             "range": [
-              "#e6f0fa",
+              "#d6e6f5",
               "#4f86c6"
             ],
             "zero": false
@@ -124,7 +124,7 @@
           },
           {
             "field": "disorder_12m",
-            "title": "12-month mental disorder (%)"
+            "title": "Mental disorder, past 12 months (%)"
           }
         ]
       }

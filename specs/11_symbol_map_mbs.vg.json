@@ -29,7 +29,7 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#e9eef4",
+        "fill": "#ffffff",
         "stroke": "white",
         "strokeWidth": 1.5
       }
@@ -132,19 +132,71 @@
       "data": {
         "values": [
           {
-            "lon": 141.2,
-            "lat": -40.6,
-            "text": "Inner Melbourne: 140 per 1,000, the highest rate"
+            "text": "Inner Melbourne: 140 per 1,000, the highest rate",
+            "align": "right",
+            "tl": 140.2,
+            "tt": -40.9,
+            "ll": 140.5,
+            "lt": -40.5,
+            "sl": 144.85,
+            "st": -37.95
           },
           {
-            "lon": 157.5,
-            "lat": -27.2,
-            "text": "Richmond–Tweed: 139"
+            "text": "Richmond–Tweed: 139",
+            "align": "left",
+            "tl": 155.6,
+            "tt": -25.4,
+            "ll": 155.4,
+            "lt": -25.8,
+            "sl": 153.25,
+            "st": -28.6
           },
           {
-            "lon": 133.4,
-            "lat": -22.4,
-            "text": "NT Outback: 28, the lowest"
+            "text": "NT Outback: 28, the lowest",
+            "align": "center",
+            "tl": 133.4,
+            "tt": -23.0,
+            "ll": 133.4,
+            "lt": -22.2,
+            "sl": 133.375,
+            "st": -19.9
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#1d4e89",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "ll",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lt",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "sl"
+        },
+        "latitude2": {
+          "field": "st"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "text": "Inner Melbourne: 140 per 1,000, the highest rate",
+            "align": "right",
+            "tl": 140.2,
+            "tt": -40.9,
+            "ll": 140.5,
+            "lt": -40.5,
+            "sl": 144.85,
+            "st": -37.95
           }
         ]
       },
@@ -153,15 +205,93 @@
         "fontSize": 12,
         "fontWeight": 600,
         "fontStyle": "italic",
-        "color": "#1d4e89"
+        "color": "#1d4e89",
+        "align": "right",
+        "baseline": "middle"
       },
       "encoding": {
         "longitude": {
-          "field": "lon",
+          "field": "tl",
           "type": "quantitative"
         },
         "latitude": {
-          "field": "lat",
+          "field": "tt",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "text": "Richmond–Tweed: 139",
+            "align": "left",
+            "tl": 155.6,
+            "tt": -25.4,
+            "ll": 155.4,
+            "lt": -25.8,
+            "sl": 153.25,
+            "st": -28.6
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "fontStyle": "italic",
+        "color": "#1d4e89",
+        "align": "left",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "tl",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "tt",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "text": "NT Outback: 28, the lowest",
+            "align": "center",
+            "tl": 133.4,
+            "tt": -23.0,
+            "ll": 133.4,
+            "lt": -22.2,
+            "sl": 133.375,
+            "st": -19.9
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "fontStyle": "italic",
+        "color": "#1d4e89",
+        "align": "center",
+        "baseline": "top"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "tl",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "tt",
           "type": "quantitative"
         },
         "text": {

@@ -7,10 +7,10 @@
   <meta name="author" content="Mithra">
   <meta name="description" content="A visual story about mental health in Australia: how common it is, who is affected, how it has changed and who gets help.">
 
-  <!-- Fonts: Source Serif 4 for headings, Source Sans 3 for body text and charts -->
+  <!-- Fonts: Bree Serif for headings, Lato for body text, Source Sans 3 inside the charts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Bree+Serif&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Vega, Vega-Lite and Vega-Embed, pinned to exact versions -->
@@ -54,20 +54,21 @@
     <p class="section-label">Section 1 · How common is it?</p>
     <div class="grid-2">
       <div class="text-col">
-        <h2>Almost half of us will have a mental disorder at some point</h2>
+        <h2>Almost <span class="hl">half</span> of all Australians will have a mental disorder at some point</h2>
         <p>The ABS National Study of Mental Health and Wellbeing interviewed Australians aged 16–85 between 2020 and 2022. It found that <strong>43 in every 100</strong> had experienced a mental disorder at some time in their life, and <strong>22 in every 100</strong> had symptoms in the 12 months before the interview.</p>
         <p class="note">A <em>mental disorder</em> here means an anxiety, mood (affective) or substance use disorder that meets clinical criteria. Each square is one person in 100.</p>
       </div>
       <figure class="chart-col">
         <div id="vis-waffle" class="chart"></div>
-        <figcaption>Source: ABS, National Study of Mental Health and Wellbeing 2020–22.</figcaption>
+        <figcaption>Source: ABS, National Study of Mental Health and Wellbeing.</figcaption>
       </figure>
     </div>
 
     <figure>
       <h3 class="chart-title">What kinds of disorders?<span class="chart-sub">Anxiety disorders are the most common</span></h3>
+      <p class="chart-text">Each rectangle is one type of mental disorder people had in the past 12 months; its area shows how many Australians aged 16–85 had it. Rectangles are grouped into anxiety, affective (mood) and substance use disorders. Social phobia (7.3%) and post-traumatic stress disorder (5.6%) are the most common single disorders.</p>
       <div id="vis-treemap" class="chart"></div>
-      <figcaption>Each rectangle is one type of 12-month mental disorder; its area shows how many Australians aged 16–85 had it. Rectangles are grouped into anxiety, affective (mood) and substance use disorders. Social phobia (7.3%) and post-traumatic stress disorder (5.6%) are the most common single disorders. Many people have more than one disorder, so the rectangles add up to more than the 4.3 million people with any disorder. Hover a rectangle for its numbers. Source: ABS NSMHW 2020–22, Table 2.</figcaption>
+      <figcaption>Many people have more than one disorder, so the rectangles add up to more than the 4.3 million people with any disorder. Hover a rectangle for its numbers. Source: ABS NSMHW, Table 2.</figcaption>
     </figure>
   </section>
 
@@ -77,13 +78,13 @@
     <h2>Young people, and young women most of all</h2>
     <div class="intro-row">
       <img class="intro-art" src="img/distress-figure.png" width="572" height="600" alt="" aria-hidden="true">
-      <p class="intro">Mental disorders are far more common among young adults than older Australians. Anxiety is the most common type at every age. Switch between groups to compare: <strong>45.5% of women aged 16–24</strong> had a disorder in the last 12 months, compared with 32.4% of men the same age.</p>
+      <p class="intro">Mental disorders are far more common among young adults than older Australians. Anxiety is the most common type at every age. Switch between groups to compare: <strong>45.5% of women aged 16–24</strong> had a disorder in the past 12 months, compared with 32.4% of men the same age.</p>
     </div>
 
     <figure>
-      <h3 class="chart-title">Share of each age group with a 12-month mental disorder, by type</h3>
+      <h3 class="chart-title">Age group by mental disorder classification type (past 12 months)</h3>
       <div id="vis-heatmap" class="chart"></div>
-      <figcaption>Darker cells mean a higher percentage. A person can have more than one type, so the types do not add up to "Any disorder". Source: ABS NSMHW 2020–22, Table 3.</figcaption>
+      <figcaption>Darker cells mean a higher percentage. A person can have more than one type, so the types do not add up to "Any disorder". Source: ABS NSMHW, Table 3.</figcaption>
     </figure>
 
     <div class="grid-2 align-start">
@@ -103,7 +104,7 @@
     <figure>
       <h3 class="chart-title" style="margin-bottom: 24px;">Distress level by age group</h3>
       <div id="vis-diverging" class="chart chart-center"></div>
-      <figcaption>Bars left of the black line are low or moderate distress; bars to the right are high or very high. Source: ABS NSMHW 2020–22, Table 16.</figcaption>
+      <figcaption>Bars left of the black line are low or moderate distress; bars to the right are high or very high. Source: ABS NSMHW, Table 16.</figcaption>
     </figure>
   </section>
 
@@ -115,7 +116,7 @@
     <figure>
       <h3 class="chart-title">People reporting a mental health condition or high distress, 2001–2022</h3>
       <div id="vis-trend" class="chart"></div>
-      <figcaption>Points are survey years, placed at the middle of each collection period. Hover a line to focus on it. Source: ABS National Health Survey 2022, Table 1.</figcaption>
+      <figcaption>Points are survey years, placed at the middle of each collection period. Hover a line to focus on it. Source: ABS National Health Survey, Table 1.</figcaption>
     </figure>
   </section>
 
@@ -124,15 +125,15 @@
     <p class="section-label">Section 4 · Where in Australia?</p>
     <div class="grid-2 align-start">
       <div class="text-col">
-        <h2>Differences between states are smaller than differences between ages</h2>
-        <p>Rates vary between states and territories, and which state looks "worst" depends on the measure. South Australia had the highest share of adults with high distress (17.0%), Queensland the most people with a long-term mental health condition (30.8%), and the Northern Territory the highest rate of 12-month disorders (28.8%).</p>
-        <p>Use the menu above the map to switch indicators.</p>
-        <p class="note">State figures come from surveys, so differences of 1–2 percentage points may not be meaningful. The NSMHW excludes very remote areas, which affects the Northern Territory most.</p>
+        <h2>Different states perform worse on different measures</h2>
+        <p>Rates vary between states and territories, and which state looks "worst" depends on the measure. South Australia had the highest share of adults with high distress (17.0%), Queensland the most people with a long-term mental health condition (30.8%), and the Northern Territory the highest rate of mental disorders in the past 12 months (28.8%).</p>
+        <p>Use the menu below the map to switch indicators.</p>
+        <img class="side-art" src="img/hug.png" width="640" height="516" alt="" aria-hidden="true">
       </div>
       <figure class="chart-col">
         <h3 class="chart-title">Mental health indicators by state and territory</h3>
         <div id="vis-choropleth" class="chart"></div>
-        <figcaption>Sources: ABS National Health Survey 2022, Table 2; ABS NSMHW 2020–22, state tables.</figcaption>
+        <figcaption>Sources: ABS National Health Survey, Table 2; ABS NSMHW, state tables.<span class="cap-line">State figures come from surveys, so differences of 1–2 percentage points may not be meaningful. The NSMHW excludes very remote areas, which affects the Northern Territory most.</span></figcaption>
       </figure>
     </div>
 
@@ -142,32 +143,33 @@
   <section id="help">
     <p class="section-label">Section 5 · Getting help</p>
     <h2>Less than half of people with a disorder see a professional</h2>
-    <p class="intro">Of the 4.3 million Australians with a 12-month mental disorder, 45% saw a GP, psychologist, psychiatrist or other health professional about their mental health. Men were less likely than women to get help, and older people least likely of all.</p>
+    <p class="intro">Of the 4.3 million Australians with a mental disorder in the past 12 months, 47% saw a GP, psychologist, psychiatrist or other health professional about their mental health. Men were less likely than women to get help, and older people least likely of all.</p>
+
+    <figure>
+      <h3 class="chart-title">Who people saw for their mental health, by type of disorder</h3>
+      <div id="vis-help" class="chart"></div>
+      <figcaption>The dark diamond shows everyone with a mental disorder, whatever the type. Source: Harris et al., <em>Australian and New Zealand Journal of Psychiatry</em> 59(9), Tables 3 and 5, using ABS NSMHW data.</figcaption>
+    </figure>
 
 
     <h3 class="sub">Who uses Medicare-subsidised mental health services?</h3>
     <p class="intro">In 2024–25, about 2.8 million Australians (10%) received a mental health service subsidised by Medicare, such as sessions with a psychologist under a GP's mental health plan. Females aged 18–34 use these services at almost twice the rate of males the same age.</p>
 
     <figure>
-      <h3 class="chart-title">People per 1,000 receiving Medicare mental health services, 2024–25</h3>
+      <h3 class="chart-title" style="margin-bottom: 32px;">People per 1,000 receiving Medicare mental health services, 2024–25 compared to 2015–16</h3>
       <div id="vis-pyramid" class="chart chart-center"></div>
-      <figcaption>Bars show 2024–25; the black tick on each bar shows 2015–16, ten years earlier. Source: AIHW, Medicare mental health services 2024–25, Table MBS.4.</figcaption>
+      <figcaption>The narrow coloured bars show 2024–25; the wide grey bar behind each one shows 2015–16, ten years earlier. Source: AIHW, Medicare mental health services 2024–25, Table MBS.4.</figcaption>
     </figure>
 
+    <h3 class="sub">Ten years on: growth came from young adults</h3>
+    <p class="intro">Comparing the grey and coloured bars shows where the extra demand came from. Rates rose most for people aged 25–34 (up 21%) and 18–24 (up 17%). They barely moved for people aged 45–74. They fell for young children (down 36% for 0–4 year olds) and slightly for people over 75, even though older Australians with a disorder are already the least likely to get help.</p>
+
     <figure>
-      <h3 class="chart-title" style="text-align: center; margin-bottom: 48px;">A pandemic surge among young women</h3>
+      <h3 class="chart-title" style="margin-bottom: 48px;">A pandemic surge among young women</h3>
       <div id="vis-heatmap-years" class="chart chart-center"></div>
       <figcaption>People per 1,000 receiving services, by age and financial year (labelled by the year it starts). Numbers mark the two highest cells: 237 and 241 per 1,000 women aged 18–24 in 2020–21 and 2021–22, when extra Medicare-funded sessions were available during COVID-19. Source: AIHW MBS Table MBS.4.</figcaption>
     </figure>
 
-    <h3 class="sub">Ten years on: growth came from young adults</h3>
-    <p class="intro">Comparing 2015–16 with 2024–25 shows where the extra demand came from. Rates rose most for people aged 25–34 (up 21%) and 18–24 (up 17%). They barely moved for people aged 45–74. They fell for young children (down 36% for 0–4 year olds) and slightly for people over 75, even though older Australians with a disorder are already the least likely to get help.</p>
-    <figure>
-      <h3 class="chart-title">People per 1,000 receiving Medicare mental health services, 2015–16 vs 2024–25</h3>
-      <div class="legend-inline"><span class="dot dot-pale"></span> 2015–16 <span class="dot dot-dark2"></span> 2024–25</div>
-      <div id="vis-dumbbell" class="chart"></div>
-      <figcaption>Each column is an age group. The light circle is 2015–16 and the dark circle is 2024–25. The bar between them is blue where the rate went up and orange where it went down, and the label underneath gives the change. Source: AIHW, Medicare mental health services 2024–25, Table MBS.4.</figcaption>
-    </figure>
   </section>
 
   <!-- ================= 6. SERVICES BY STATE ================= -->
@@ -179,17 +181,15 @@
     <figure>
       <h3 class="chart-title" style="font-size: 26px; line-height: 1.2; margin-bottom: 32px;">Where need and service use don't match</h3>
       <div id="vis-bivariate" class="chart chart-center"></div>
-      <figcaption>Each state is coloured by two measures at once: the share of adults with high or very high distress (2022), and people per 1,000 using Medicare mental health services (2024–25). Each measure is split at the middle value (median) of the eight states and territories. Orange marks states with <strong>higher distress but lower service use</strong>: South Australia and the Northern Territory. Sources: ABS NHS 2022, Table 2; AIHW MBS Table MBS.3.</figcaption>
+      <figcaption>Each state is coloured by two measures at once: the share of adults with high or very high distress (2022), and people per 1,000 using Medicare mental health services (2024–25). Each measure is split at the middle value (median) of the eight states and territories. Sources: ABS NHS, Table 2; AIHW MBS Table MBS.3.</figcaption>
     </figure>
 
     <figure>
       <h3 class="chart-title">Medicare mental health service use in 88 regions, 2024–25</h3>
+      <p class="chart-text">Each circle is an ABS Statistical Area Level 4 (SA4) region, such as "Melbourne – Inner" or "Far West and Orana". Circle area shows the number of people who received services; colour shows people per 1,000 residents. Most people who use services live in the capital cities, and rates are lowest in outback regions. Hover a circle for its name and numbers.</p>
       <div id="vis-symbol" class="chart"></div>
-      <figcaption>Each circle is an ABS Statistical Area Level 4 (SA4) region, such as "Melbourne – Inner" or "Far West and Orana". Circle area shows the number of people who received services; colour shows people per 1,000 residents. Most people who use services live in the capital cities, and rates are lowest in outback regions. Hover a circle for its name and numbers. Sources: AIHW Medicare mental health services 2024–25 (SA4 data); ABS ASGS 2021 SA4 boundaries (circle positions).</figcaption>
+      <figcaption>Sources: AIHW Medicare mental health services 2024–25 (SA4 data); ABS ASGS SA4 boundaries (circle positions).</figcaption>
     </figure>
-
-    <h3 class="sub">City and country</h3>
-    <p>Rates were highest in inner Melbourne (140 per 1,000) and on the NSW north coast around Richmond–Tweed (139). They were lowest in the outback: 28 per 1,000 in outback Northern Territory, 42 in outback Queensland and 46 in outback northern Western Australia.</p>
 
     <figure>
       <h3 class="chart-title">State rankings, 2015–16 to 2024–25</h3>
@@ -206,6 +206,8 @@
       <div class="card">
         <h3>It is common, and it starts young</h3>
         <p>About 1 in 5 Australians aged 16–85 had a mental disorder in the past year. Anxiety disorders are the most common type, and rates and distress peak among 16–24 year olds, especially young women.</p>
+        <div class="pictogram" role="img" aria-label="1 in 5 Australians"><span class="picto on"><svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M3 15a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v11h-3.5v13h-4v-12h-1v12h-4v-13H3z"/></svg></span><span class="picto"><svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M3 15a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v11h-3.5v13h-4v-12h-1v12h-4v-13H3z"/></svg></span><span class="picto"><svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M3 15a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v11h-3.5v13h-4v-12h-1v12h-4v-13H3z"/></svg></span><span class="picto"><svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M3 15a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v11h-3.5v13h-4v-12h-1v12h-4v-13H3z"/></svg></span><span class="picto"><svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M3 15a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v11h-3.5v13h-4v-12h-1v12h-4v-13H3z"/></svg></span></div>
+        <p class="picto-note">1 in 5 Australians</p>
       </div>
       <div class="card">
         <h3>Reported conditions keep rising</h3>
@@ -233,6 +235,7 @@
       <ul class="sources">
         <li>Australian Bureau of Statistics (2023). <em>National Study of Mental Health and Wellbeing, 2020–2022</em>. Tables 2, 3, 6, 16 and state tables. <a href="https://www.abs.gov.au/statistics/health/mental-health/national-study-mental-health-and-wellbeing/latest-release">abs.gov.au</a></li>
         <li>Australian Bureau of Statistics (2023). <em>National Health Survey, 2022</em>. Tables 1 and 2. <a href="https://www.abs.gov.au/statistics/health/health-conditions-and-risks/national-health-survey/latest-release">abs.gov.au</a></li>
+        <li>Harris MG, Tapp C, Vescovi JJ, et al. (2025). Consultation with health professionals for mental health in Australia in 2020–2022 and changes since 2007: findings from the 2020–2022 National Study of Mental Health and Wellbeing. <em>Australian and New Zealand Journal of Psychiatry</em>, 59(9), 810–823. Tables 3 and 5. <a href="https://doi.org/10.1177/00048674241307919">doi.org/10.1177/00048674241307919</a></li>
         <li>Australian Institute of Health and Welfare (2026). <em>Medicare mental health services 2024–25</em>. Data tables MBS.3 and MBS.4. <a href="https://www.aihw.gov.au/mental-health/topic-areas/community-based-services/medicare-mental-health">aihw.gov.au</a></li>
         <li>Australian Institute of Health and Welfare (2026). <em>Medicare mental health services 2024–25</em>, PHN and SA4 data file. <a href="https://www.aihw.gov.au/mental-health/topic-areas/community-based-services/medicare-mental-health">aihw.gov.au</a></li>
         <li>Australian Bureau of Statistics (2021). <em>Australian Statistical Geography Standard (ASGS) Edition 3, SA4 boundaries</em>, used to place the regional circles. <a href="https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA4/MapServer">geo.abs.gov.au</a></li>
@@ -245,7 +248,7 @@
          <strong>Unit:</strong> FIT3179 Data Visualisation, Monash University<br>
          <strong>Published:</strong> October 2026<br>
          <strong>Built with:</strong> Vega-Lite 5, Vega 5 (treemap), Vega-Embed</p>
-      <p class="meta"> graphics sourced from Canva <!-- TODO: add credits (artist and source URL) for img/hero-head.png and img/distress-figure.png here -->All data comes from the sources listed and has not been altered, apart from reshaping into CSV files.</p>
+      <p class="meta">AI assistance (Claude) was used to help draft code and text. <!-- TODO: add credits (artist and source URL) for img/hero-head.png and img/distress-figure.png and img/hug.png here -->All data comes from the sources listed and has not been altered, apart from reshaping into CSV files.</p>
     </div>
   </div>
 </footer>

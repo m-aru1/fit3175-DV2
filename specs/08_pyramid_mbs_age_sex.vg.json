@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Butterfly (population-pyramid style) chart: people per 1,000 who received a Medicare-subsidised mental health service in 2024-25 by age group, males left, females right. The black tick shows the 2015-16 rate (AIHW, Medicare mental health services 2024-25, Table MBS.4).",
+  "description": "Butterfly (population-pyramid style) chart: people per 1,000 who received a Medicare-subsidised mental health service in 2024-25 by age group, males left, females right. A wide grey bar behind each coloured bar shows the 2015-16 rate (AIHW, Medicare mental health services 2024-25, Table MBS.4).",
   "data": {
     "url": "data/mbs_age_sex_trend.csv",
     "format": {
@@ -64,13 +64,16 @@
         {
           "mark": {
             "type": "bar",
-            "color": "#6cb4d9",
+            "color": "#d3dbe4",
+            "height": {
+              "band": 0.85
+            },
             "cornerRadiusTopLeft": 3,
             "cornerRadiusBottomLeft": 3
           },
           "encoding": {
             "x": {
-              "field": "now",
+              "field": "then",
               "type": "quantitative",
               "scale": {
                 "domain": [
@@ -111,14 +114,17 @@
         },
         {
           "mark": {
-            "type": "tick",
-            "color": "#13213a",
-            "thickness": 2,
-            "bandSize": 14
+            "type": "bar",
+            "color": "#6cb4d9",
+            "cornerRadiusTopLeft": 3,
+            "cornerRadiusBottomLeft": 3,
+            "height": {
+              "band": 0.5
+            }
           },
           "encoding": {
             "x": {
-              "field": "then",
+              "field": "now",
               "type": "quantitative",
               "scale": {
                 "domain": [
@@ -137,7 +143,24 @@
                   200
                 ]
               }
-            }
+            },
+            "tooltip": [
+              {
+                "field": "sex"
+              },
+              {
+                "field": "age_group",
+                "title": "Age group"
+              },
+              {
+                "field": "now",
+                "title": "2024–25 (per 1,000)"
+              },
+              {
+                "field": "then",
+                "title": "2015–16 (per 1,000)"
+              }
+            ]
           }
         },
         {
@@ -235,13 +258,16 @@
         {
           "mark": {
             "type": "bar",
-            "color": "#1d4e89",
+            "color": "#d3dbe4",
+            "height": {
+              "band": 0.85
+            },
             "cornerRadiusTopRight": 3,
             "cornerRadiusBottomRight": 3
           },
           "encoding": {
             "x": {
-              "field": "now",
+              "field": "then",
               "type": "quantitative",
               "scale": {
                 "domain": [
@@ -282,14 +308,17 @@
         },
         {
           "mark": {
-            "type": "tick",
-            "color": "#13213a",
-            "thickness": 2,
-            "bandSize": 14
+            "type": "bar",
+            "color": "#1d4e89",
+            "cornerRadiusTopRight": 3,
+            "cornerRadiusBottomRight": 3,
+            "height": {
+              "band": 0.5
+            }
           },
           "encoding": {
             "x": {
-              "field": "then",
+              "field": "now",
               "type": "quantitative",
               "scale": {
                 "domain": [
@@ -308,7 +337,24 @@
                   200
                 ]
               }
-            }
+            },
+            "tooltip": [
+              {
+                "field": "sex"
+              },
+              {
+                "field": "age_group",
+                "title": "Age group"
+              },
+              {
+                "field": "now",
+                "title": "2024–25 (per 1,000)"
+              },
+              {
+                "field": "then",
+                "title": "2015–16 (per 1,000)"
+              }
+            ]
           }
         },
         {
