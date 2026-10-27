@@ -62,4 +62,4 @@ CODE_GUIDE.md         my notes explaining every spec, block by block
 - **Layout:** sections alternate between white and light blue so it's easy to tell where each part of the story starts.
 
 ## AI Aknowledgement
-I used AI assistance to help draft the visual design (fonts, colour, etc). All data comes from the sources listed above and hasn't been changed apart from cleaning it up into CSV files
+I used AI assistance to help draft the visual design (fonts, colour, etc) and to get feedback on the layout of my visualisation. All data comes from the sources listed above and hasn't been changed apart from cleaning it up into CSV files
